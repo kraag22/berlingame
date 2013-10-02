@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+.reklama_nadpis{ font-size:20px; color:Red;}
+
+*.loginbar{
+font-size:18px;
+}
+#error{
+color:red;font-size:18px;
+}
+

@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+.napoveda{
+	background-color: gray;
+	color: white;
+	width: 670px;
+	padding: 15px;
+}
+
+.napoveda_obsah{
+	background-color: black;
+	width: 630px;
+	padding: 20px;
+}
+
+.podklad{
+	background-image: url("podklad.png");
+}
+
+h3{
+	color: green;
+}
+
+h4{
+	color: limeGreen;
+}
+
+div .otazka{
+	margin-top:10px;
+}
+
+.dotaz{
+	color: gold;
+}
+
+.odpoved{
+	color: white;
+}
+
+.efekt{
+	color: red;
+}
+
+a{
+	color: gold;
+}

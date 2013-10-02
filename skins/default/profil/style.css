@@ -1,0 +1,216 @@
+body {
+      background: #330000;
+      text-align: center;
+      padding: 5px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    #TipLayer{
+    	text-align: left;
+    }
+    #wrap_margin {
+       margin-top: 20px;
+       margin-bottom: 8px;
+       padding: 0;
+    }
+    #wrap {
+       width: 762px;
+       margin: 0 auto;
+       padding: 0;
+       text-align: left;
+    }
+    #wrap_top{
+       background: url(ramecek_top.png);
+       height: 5px;
+    }
+    #wrap_body{
+       background: url(ramecek_body.png) repeat-y;
+       height: 555px;
+    }
+    #wrap_bottom{
+       background: url(ramecek_bottom.png);
+       height: 5px;
+    }
+
+    #cont1 { /* = wrap_body without padding */
+       position: relative;
+    }
+    
+    #cont2 { /* right container */
+      position: absolute;
+      left: 300px;
+      top: 8px;
+      width: 449px;
+      padding: 0;
+    }
+    
+    #cont2a {
+       width: 100%;    
+       height: 100%;    
+    }
+    
+    #cont2a_vyznamenani {
+       background: url(ramecek_profil_vyznamenani.png);
+       height: 352px;
+       width: 449px;
+    }
+    
+    .cont2a_seznam_text{
+    	position: absolute;
+    	left: 110px;
+    	top: 318px;
+    	display: block;
+    	width: 248px;
+    	height: 15px;
+    	background-image: url(seznam_vyznamenani.png);
+    }
+
+    #cont2c_body{
+       margin-left: 120px;
+       margin-top: 50px;
+    }
+    
+    #cont2c_input{
+    	background: url(ramecek_profil_searchfield.png);
+    	height: 25px;
+    	width: 205px;
+    	background-repeat:no-repeat;
+		border:0 none;
+		display: block;
+		color:#33CC33;
+		padding-left: 8px;
+		padding-top: 3px;
+    }
+    
+    #cont2buttonsearch {
+       text-align: center;
+       background-image: url(button_search.png);
+       width: 111px;
+       height: 25px;
+       cursor:pointer;
+       border: 0;
+       margin-left: 165px;
+    }
+
+    #cont3 { /* left container */
+       position: absolute;
+       left: 16px;
+       top: 8px;
+       width: 273px;
+       padding: 0;
+    }
+    #cont3a {
+       width: 100%;    
+       height: 85px;    
+    }
+    #cont3a_top{
+       background: url(ramecek_left_top.png);
+       height: 5px;
+    }
+    #cont3a_body{
+       background: url(ramecek_left_body.png) repeat-y;
+       padding: 3px;
+       min-height: 82px;
+    }
+    #cont3a_image{
+      float: left;
+      height: 
+    }
+    #cont3a_text{
+      margin-left: 82px;
+    }
+    #cont3a_bottom{
+       background: url(ramecek_left_bottom.png);
+       height: 6px;
+       margin-bottom: 10px;
+    }
+    #cont3b_top{
+       background: url(ramecek_left_top.png);
+       height: 5px;
+    }
+    #cont3b_body{
+       background: url(ramecek_left_body.png) repeat-y;
+       height: 444px;
+    }
+    #cont3b_bottom{
+       background: url(ramecek_left_bottom.png);
+       height: 6px;
+       margin-bottom: 10px;
+    }
+    
+/**** Texty *****/
+.profil_name { 
+  background: url(profil_name_bg.png);
+  color: #FFC600;
+  display: block;
+  font-size: 11pt;
+  font-weight: bold;
+  height: 30px;
+  width: 191px;
+}
+
+.statistika_common { /* spolecne pro vsechny texty statistiky (zelena barva)  */
+  font-weight: bold;
+  font-size: 11px;
+  font-family: arial;
+  color: #33cc33;
+}
+
+.statistika_text {
+  padding: 0px 0px 0px 10px;
+}
+
+.vyznamenani {
+}
+
+.profil_created_wrap{ 
+  background: url(ramecek_profil_created.png);
+  display: block;
+  height: 40px;
+  width: 191px;
+  margin-top: 6px;
+}
+
+.profil_name div{
+	margin-left: 8px;
+	padding-top: 6px;  
+}
+
+.profil_created_wrap div{ 
+  color: #cccccc ;
+  display: block;
+  font-weight: bold;
+  font-size: 11px;
+  font-family: arial;
+  
+  margin-left: 8px;  
+  padding-top: 6px;   
+}
+
+.titulek_scenar_small_left { 
+}
+
+.titulek_scenar_small_right { 
+  color: white;
+  display: inline;
+  font-size: 11pt;
+  padding-left: 5px;
+}
+
+.titulek_scenar_small_right_herniden { 
+  color: green;
+  display: inline;
+  font-size: 11pt;
+  padding-left: 5px;
+}
+
+.uvod_scenare_text {
+  color: grey;
+  font-size: 10pt;
+  margin-left: -10px;  
+  padding: 0px 10px 10px 25px;  
+}
+
+.vyrazne{
+	color: gold;
+}

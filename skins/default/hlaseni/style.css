@@ -1,0 +1,307 @@
+@CHARSET "UTF-8";
+
+body{
+	background-color: black;
+}
+
+.hlaseni_ohraniceni{
+	width:830px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*
+	VRSEK
+*/
+.hlaseni_vrsek{
+	background-image:url(bg_vrsek.png);
+	background-repeat:no-repeat;
+	height:43px;
+}
+#hlaseni_datum{
+	color:#ffcc00;
+	font-size: large;
+	padding-right:10px;
+	padding-top: 10px;
+	float:right;
+}
+
+/*
+	BANNER
+*/
+.hlaseni_banner{
+	height: 108px;
+}
+/*
+	MENU
+*/
+div .hlaseni_menu{
+	height: 40px;
+}
+#hlaseni_menu{
+	background:url(menu_hlaseni_boj.png) no-repeat;
+	height:40px;
+	margin:0px;
+	padding:0px;
+	position:relative;
+	width:830px;
+}
+
+.hlaseni_menu li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}	
+.hlaseni_menu a {
+	display: block;
+	color:#ffcc00;
+	text-decoration: none;
+	font-size: 7pt;
+	text-align: justify;
+}
+
+#odkaz1, #odkaz1 a {
+  width: 119px; 
+	height: 40px; 
+	top: 0px; 
+	left: 0px; 
+	background:url(menu_hlaseni.png) 0px 0px;
+}
+#odkaz1 a:hover {
+  background:url(menu_hlaseni.png) 0px -40px;
+}
+#odkaz1_akt, #odkaz1_akt a {
+  width: 119px; 
+	height: 40px; 
+	top: 0px; 
+	left: 0px; 
+	background:url(menu_hlaseni_globalni.png) 0px 0px;
+}
+#odkaz2, #odkaz2 a {
+  width: 115px; 
+	height: 40px; 
+	top: 0px; 
+	left: 120px; 
+	background:url(menu_hlaseni.png) -121px 0px;
+}
+#odkaz2 a:hover {
+  background:url(menu_hlaseni.png) -121px -40px;
+}
+#odkaz2_akt, #odkaz2_akt a {
+  width: 115px; 
+	height: 40px; 
+	top: 0px; 
+	left: 120px; 
+	background:url(menu_hlaseni_akce.png) -121px 0px;
+}
+#odkaz3, #odkaz3 a {
+  width: 123px; 
+	height: 40px; 
+	top: 0px; 
+	left: 237px; 
+	background:url(menu_hlaseni.png) -240px 0px;
+}
+#odkaz3 a:hover {
+  background:url(menu_hlaseni.png) -240px -40px;
+}
+#odkaz3_akt, #odkaz3_akt a {
+  width: 123px; 
+	height: 40px; 
+	top: 0px; 
+	left: 237px; 
+	background:url(menu_hlaseni_boj.png) -240px 0px;
+}
+
+/*
+	OBSAH
+*/
+.efekt{
+	color: red;
+}
+.hlaseni_obsah{
+	background-image:url(obsah.jpg);
+	background-repeat:no-repeat;
+	height: 520px;
+	position:relative;
+}
+.hlaseni_obsah_globalni{
+	background-image:url(obsah_globalni.jpg);
+	background-repeat:no-repeat;
+	height: 520px;
+	position:relative;
+}
+
+#obrazek{
+	position:absolute;
+	left:536px;
+	top:39px;
+	width:264px;
+	height:131px;
+}
+#buttony{
+	position:absolute;
+	left:520px;
+	top:477px;
+	width:295px;
+	height:31px;
+}
+#kratke_hlaseni{
+	position: absolute;
+	left:33px;
+	top:47px;
+	width:452px;
+	height:438px;
+	font-size: 10pt;
+	color:white;
+	overflow-y: auto; 
+	overflow: -moz-scrollbars-vertical; 
+}
+#kratke_hlaseni_globalni{
+	position: absolute;
+	left:46px;
+	top:36px;
+	width:752px;
+	height:409px;
+	color:white;
+	overflow-y: auto; 
+	overflow: -moz-scrollbars-vertical; 
+}
+#detail_hlaseni{
+	position: absolute;
+	font-size: 10pt;
+	left:536px;
+	top:218px;
+	width:260px;
+	height:192px;
+	color:white;
+	margin: 5px;
+}
+#ztraty_hlaseni{
+	position: absolute;
+	font-size: 10pt;
+	left:650px;
+	top:430px;
+	width:263px;
+	height:40px;
+	color:white;
+}
+#text1{
+	position:absolute;
+	left:26px;
+	top:26px;
+}
+#text2{
+	position:absolute;
+	left:156px;
+	top:26px;
+}
+#text3{
+	position:absolute;
+	left:320px;
+	top:26px;
+}
+#text4{
+	position:absolute;
+	left:400px;
+	top:26px;
+}
+#text5{
+	position:absolute;
+	left:556px;
+	top:186px;
+}
+#text6{
+	position:absolute;
+	left:650px;
+	top:416px;
+}
+#tb{
+	width:430px;
+}
+
+#tb tr:hover{
+	background-color: gray;
+	cursor: pointer;
+}
+
+#td1{
+	width:70px;
+}
+#td2{
+	width:130px;
+}
+#td3{
+	width:30px;
+}
+#td4{
+	color: gold;
+	width:20px;
+}	
+
+.hlaseni_glob_zprava{
+	width:550px;
+	margin: 20px 15px 20px 15px;
+}
+
+/*
+ ODKAZY - BUTTONY GLOBALNI
+*/
+
+#button_mapa{
+	background:transparent url(button_mapa.png) no-repeat;
+	display:block;
+	position:absolute;
+	left:525px;
+	top:473px;
+	width:87px;
+	height:30px;
+}
+#button_forum{
+	background:transparent url(button_forum.png) no-repeat;
+	display:block;
+	position:absolute;
+	left:625px;
+	top:473px;
+	width:87px;
+	height:30px;
+}
+#button_zpet{
+	background:transparent url(button_zpet.png) no-repeat;
+	display:block;
+	position:absolute;
+	left:725px;
+	top:473px;
+	width:87px;
+	height:30px;
+}
+
+.zvyrazneni{
+	color: #EE2F37;
+}
+
+/*
+	POCASI
+*/
+
+.pocasi{
+	margin: 10px;
+}
+
+.pocasi_text{
+	margin-left: 55px;
+}
+
+.ramecek{
+	z-index: 1;
+	position: absolute;
+	top: 15px;
+	left: 10px;
+}
+
+.ikona{
+	z-index: 2;
+	position: absolute;
+	top: 28px;
+	left: 17px;
+}

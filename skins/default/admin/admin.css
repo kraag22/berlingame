@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+body {
+  font-family: arial;
+	padding-bottom: 3em;
+  margin: 20px;
+	background: #fff;
+	color: #333333;  
+  padding: 0;	
+}
+
+h1 {
+  color: #333366;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+div.menu {    
+  width: 100%;       	
+  background: #fff;
+  padding: 10px 10px 10px 10px;		
+}
+
+li {
+  list-style-image: url('../admin/sipka.gif');
+}
+a.menuitem {    
+  background: #fff;      
+  line-height: 30px;      
+  font-size: 1em;
+  font-weight: bold;
+}

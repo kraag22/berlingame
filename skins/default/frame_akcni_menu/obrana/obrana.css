@@ -1,0 +1,205 @@
+@CHARSET "UTF-8";
+
+/*
+ obrana & jednotky
+ */
+#obrazek_pechota_us{
+	background-image:url(pechota_us.png);
+	position: absolute;
+    left: 21px;
+    top: 38px;
+    width: 117px;
+    height: 68px;
+}
+#obrazek_tanky_us{
+	background-image:url(tanky_us.png);
+	position: absolute;
+    left: 21px;
+    top: 121px;
+    width: 117px;
+    height: 68px;
+}
+#obrazek_pechota_sssr{
+	background-image:url(pechota_sssr.png);
+	position: absolute;
+    left: 21px;
+    top: 38px;
+    width: 117px;
+    height: 68px;
+}
+#obrazek_tanky_sssr{
+	background-image:url(tanky_sssr.png);
+	position: absolute;
+    left: 21px;
+    top: 121px;
+    width: 117px;
+    height: 68px;
+} 
+ 
+#pech_povolavaci_cena{
+  position: absolute;
+  left: 233px;
+  top: 45px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px;
+  color: gold;
+}
+
+#pech_zold_sur_tah{
+  position: absolute;
+  left: 233px;
+  top: 57px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px; 
+}
+
+#pech_zold_pal_tah{
+  position: absolute;
+  left: 233px;
+  top: 68px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px;
+}
+#pechota_v_sektoru{
+  position: absolute;
+  left: 177px;
+  top: 93px;
+  width: 20px;
+  text-align: right;
+  font-size: 10px;
+  color: limeGreen;
+}
+
+#obrana_pechota_pocet{
+  font-size: 10px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 0px;
+  position: absolute;
+  left: 225px;
+  top: 90px;
+  text-align: right;
+}
+
+#obrana_tanky_pocet{
+  font-size: 10px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 0px;
+  position: absolute;
+  left: 220px;
+  top: 157px;
+  text-align: right;
+}
+
+#tank_povolavaci_cena{
+  position: absolute;
+  left: 233px;
+  top: 128px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px;
+  color: gold; 
+}
+
+#tank_zold_sur_tah{
+  position: absolute;
+  left: 233px;
+  top: 139px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px;
+}
+
+#tank_zold_pal_tah{
+  position: absolute;
+  left: 233px;
+  top: 152px;
+  width: 16px;
+  text-align: right;
+  font-size: 10px;
+}
+
+#tanky_v_sektoru{
+  position: absolute;
+  left: 177px;
+  top: 175px;
+  width: 20px;
+  text-align: right;
+  font-size: 10px;
+  color: limeGreen;
+}
+
+#maximum_jednotek{
+  position: absolute;
+  left: 17px;
+  top: 200px;
+  width: 130px;
+  text-align: left;
+  font-size: 10px;
+}
+
+#max_jednotek{
+	color: LimeGreen;
+}
+#obrana_tanky_pocet{
+  font-size: 10px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 0px;
+  position: absolute;
+  left: 225px;
+  top: 173px;
+  text-align: right;
+}
+
+#obrana_povolat_btn {
+  position: absolute;
+  left: 150px;
+  top: 195px;
+    background-image:url(povolat_btn.jpg);
+	border:0px none;
+	color:white;
+	cursor:pointer;
+	height:24px;
+	width:53px;
+}
+#obrana_odvolat_btn {
+  position: absolute;
+  left: 210px;
+  top: 195px;
+  background-image:url(odvolat_btn.jpg);
+	border:0px none;
+	color:white;
+	cursor:pointer;
+	height:23px;
+	width:52px;
+}
+
+#pozemni_obrana{
+  position: absolute;
+  left: 20px;
+  top: 270px;
+  font-size: 11px;
+}
+
+#protivzdusna_obrana{
+  position: absolute;
+  left: 100px;
+  top: 478px;
+  font-size: 11px;
+}
+
+#sila_kontrarozvedky{
+  position: absolute;
+  left: 59px;
+  top: 589px;
+  font-size: 11px;
+}
+

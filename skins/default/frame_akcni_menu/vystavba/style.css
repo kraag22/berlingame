@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+/* 
+  vystavba
+*/
+#vystavba_nadpis {
+    margin-left: 40px;
+}
+
+#vystavba_nadpis2 {
+    margin-left: 45px;
+    margin-top: 5px;
+}
+
+#vystavba_nadpis3 {
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.vystavba_mp_postavit {
+  	background: url('button.png') 0px 0px no-repeat; 
+  	width: 120px; 
+  	height: 18px;
+  	display: block;
+  	margin-left: 75px;
+}
+
+.vystavba_pvo_postavit {
+  	background: url('button_pvo.png') 0px 0px no-repeat; 
+  	width: 120px; 
+  	height: 18px;
+  	display: block;
+  	margin-left: 75px;
+}
+
+.vystavba_chyba{
+	color: red;
+	width: 260px; 
+  	height: 49px;
+
+  	margin-left: 15px;
+  	margin-bottom: 10px;
+}
+.vystavba_chyba2{
+	color: red;
+	width: 240px; 
+  	height: 49px;
+
+  	margin-left: 25px;
+  	margin-top: 10px;
+}
+
+.vystavba_mp {
+	background: url('mp.png') 0px 0px no-repeat; 
+  	width: 269px; 
+  	height: 49px;
+
+  	margin-left: 5px;
+  	margin-bottom: 5px;
+}
+
+.vystavba_mrizka {
+	background: url('mrizka.png') 0px 0px no-repeat; 
+  	width: 273px; 
+  	height: 540px;
+
+  	margin-left: 4px;
+  	margin-top: 10px;
+}
+
+#vystavba_obal_one_mp{
+	margin-left: 8px;
+}
+
+#vystavba_one_mp {
+  	margin-top: 15px;
+  	margin-left: 4px;
+}
+
+.vystavba_pvo {
+	background: url('mp.png') 0px 0px no-repeat; 
+  	width: 269px; 
+  	height: 49px;
+
+  	margin-left: 5px;
+  	margin-bottom: 5px;
+}
+
+#vystavba_obal_one_pvo{
+	margin-left: 8px;
+}
+
+#vystavba_one_pvo {
+  	margin-top: 15px;
+  	margin-left: 4px;
+}
+
+.vystavba_inside{
+	width: 270px;
+	margin-top: 2px;
+	position: relative;
+}
+
+.vystavba_akce{
+	
+}
+
+.vystavba_obrazek{
+	border:0pt none;
+}
+
+.vystavba_tabulka tr{
+	
+}
+
+.stavby{
+
+}
+.stavby2{
+
+}
+.jednotky1{
+
+}
+.jednotky2{
+
+}
+
+

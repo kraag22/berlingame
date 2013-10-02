@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+#info_hrac_okraj{
+	position: absolute;
+    left: 9px;
+    top: 7px;
+}
+
+#vyhry_nahore{
+	height: 7px;
+	background:black url(vyhry_nahore.png) no-repeat scroll 0%;
+	position: relative;
+	width: 277px;
+}
+
+#vyhry{
+	background:black url(vyhry.png) repeat-y scroll 0% 50%;
+	min-height:370px;
+	width: 265px;
+	padding-left:12px;
+	font-size: 14px;
+	text-align:center;
+}
+
+#vyhry_dole{
+	background:black url(vyhry_dole.png) no-repeat scroll 0%;
+	height:20px;
+	width: 277px;
+}
+
+#ih_frontove_zkusenosti{
+	position: absolute;
+    left: 80px;
+    top: 241px;
+}
+
+#ih_napis_postu{
+	position: absolute;
+    left: 217px;
+    top: 5px;
+}
+
+#ih_text1{
+	position: absolute;
+    left: 17px;
+    top: 13px;
+    font-weight: bolder;
+    color: gold;
+}
+
+#ih_text2{
+	position: absolute;
+    left: 21px;
+    top: 66px;
+    font-size: 14px;
+}
+
+#ih_text3{
+	position: absolute;
+    left: 21px;
+    top: 85px;
+    font-size: 14px;
+}
+
+#ih_text4{
+	position: absolute;
+    left: 21px;
+    top: 105px;
+    font-size: 14px;
+}
+
+#ih_text5{
+	position: absolute;
+    left: 21px;
+    top: 126px;
+    font-size: 14px;
+}
+
+#ih_velky_symbol{
+	position: absolute;
+    left: 21px;
+    top: 150px;
+
+}
+
+#ih_text1 a{
+	color:gold;
+}
+

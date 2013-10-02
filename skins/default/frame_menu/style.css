@@ -1,0 +1,236 @@
+@CHARSET "UTF-8";
+
+.reklama_nadpis{ font-size:20px; color:Red;}
+
+*.loginbar{
+font-size:18px;
+}
+#error{
+color:red;font-size:18px;
+}
+
+.podklad{
+	background-image: url("podklad.png");
+}
+
+body {
+  padding: -5px;
+  margin: 0px;
+  background: black;
+}
+#wrap {
+	background: black;
+	/*margin: 0 auto;*/
+	width: 1024px;
+	padding: 0;
+}
+
+#menu {
+	background: url(ovladaci_panel.png);
+	/*width: 1010px;*/
+	height: 42px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#menu2 {
+	/*width: 1010px;*/ 
+	height: 42px; 
+	background:url(ovladaci_panel.png); 
+	padding: 0px; 
+	margin: 0px; 
+	position:relative;
+	font-size: 9pt;
+}
+
+#menu2 li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}
+
+#menu2 a {
+	display: block;
+}
+
+#menu2 span {
+	display:none;
+	font-size: 10pt;
+}
+
+.info {
+	color: white;
+	font-weight: bold;
+}
+
+.kola {
+	color: white;
+}
+
+#disp1 {
+	top: 9px;
+	left: 17px;
+	width: 45px;
+}
+
+#disp2 {
+	top: 12px;
+	left: 96px;
+	width: 48px;
+	text-align: center;
+	color: limeGreen;
+}
+
+#disp3 {
+	top: 12px;
+	left: 193px;
+	width: 48px;
+	text-align: center;
+	color: limeGreen;
+}
+
+#disp4 {
+	top: 12px;
+	left: 292px;
+	width: 48px;
+	text-align: center;
+	color: limeGreen;
+}
+
+#disp5 {
+	top: 12px;
+	left: 352px;
+	font-size: 11px;
+	font-weight: bold;
+	width: 86px;
+	text-align: center;
+}
+
+#disp6 {
+	top: 12px;
+	left: 422px;
+	font-size: 10px;
+}
+
+
+#odkaz1, #odkaz1 a {
+	width: 58px; 
+	height: 20px; 
+	top: 12px; 
+	left: 445px; 
+	background:url(ovladaci_panel.png) -445px -12px
+}
+
+#odkaz1 a:hover {
+/*moving*/
+	background:url(ovladaci_panel.png) -445px -52px;
+/*not moving	 -447px -51px; */
+}
+
+#odkaz2, #odkaz2 a {
+	width: 62px; 
+	height: 25px; 
+	top: 7px; 
+	left: 513px; 
+	background: url(ovladaci_panel.png) -513px -7px;
+}
+
+#odkaz2 a:hover {
+	background:url(ovladaci_panel.png) -513px -47px;
+}
+
+
+#odkaz3, #odkaz3 a {
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 575px; 
+	background:url(ovladaci_panel.png) -575px -7px;
+}
+
+#odkaz3 a:hover {
+	background:url(ovladaci_panel.png) -575px -47px;
+}
+
+#odkaz4, #odkaz4 a {
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 636px; 
+	background:url(ovladaci_panel.png) -636px -7px;
+}
+
+#odkaz4 a:hover {
+	background:url(ovladaci_panel.png) -636px -47px;
+}
+
+
+#odkaz5, #odkaz5 a {
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 698px; 
+	background:url(ovladaci_panel.png) -698px -7px;
+}
+
+#odkaz5 a:hover {
+	background:url(ovladaci_panel.png) -698px -47px;
+}
+
+#odkaz6, #odkaz6 a {
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 760px; 
+	background:url(ovladaci_panel.png) -760px -7px;
+}
+
+#odkaz6 a:hover {
+	background:url(ovladaci_panel.png) -760px -47px;
+}
+
+#odkaz7, #odkaz7 a {
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 820px; 
+	background:url(ovladaci_panel.png) -820px -7px;
+}
+
+#odkaz7 a:hover {
+	background:url(ovladaci_panel.png) -820px -47px;
+}
+
+#odkaz8, #odkaz8 a 
+{
+	width: 50px; 
+	height: 25px; 
+	top: 7px; 
+	left: 962px;
+	background:url(ovladaci_panel.png) -962px -7px;
+}
+
+#odkaz8 a:hover {
+	background:url(ovladaci_panel.png) -962px -47px;
+}
+
+#odkaz9, #odkaz9 a 
+{
+	width: 60px; 
+	height: 25px; 
+	top: 7px; 
+	left: 890px;
+	background:url(ovladaci_panel.png) -890px -7px;
+}
+
+#odkaz9 a:hover {
+	background:url(ovladaci_panel.png) -890px -48px;
+}
+
+#akt_posta{
+	position:relative;
+	left: 3px;
+	top: 4px;
+}

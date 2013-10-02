@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+body{
+	color: white;
+	background:#491713 url(body_bg.jpg) repeat-x scroll 0 0;
+}
+
+a{
+	color:#FFC600;
+}
+
+.ohraniceni{
+	margin-top: 30px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+	padding:10px;	
+	min-height: 300px;
+}
+
+.horni_text {
+	font-size: large;
+	text-align: center;
+}
+
+.dolni_text {
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.horni_text a {
+	font-size: xx-large;
+}
+
+.horni_text span {
+	font-size: medium;
+}
+
+.menu{
+	margin-top: 15px;
+	text-align: center;
+}
+
+.scenare{
+	margin-top: 15px;
+	margin-left: 100px;
+}
+
+/*
+.scenare tr:hover{
+	background-color: gray;
+}*/
+
+#druhy{
+	width: 400px;
+	text-align: center;
+	font-size: x-large;
+}

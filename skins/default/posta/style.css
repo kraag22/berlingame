@@ -1,0 +1,219 @@
+@CHARSET "UTF-8";
+body{
+	background-color: black;
+}
+
+.posta_ohraniceni{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 790px;
+}
+
+.posta_dorucena{
+	background:url(obsah.jpg) no-repeat;
+	height: 694px;
+	padding: 35px;
+}
+
+/*
+	NAPSAT
+*/
+
+.posta_napsat{
+	background:url(obsah_napsat.jpg) no-repeat;
+	height: 694px;
+	padding: 35px;
+	position: relative;
+}
+
+.posta_napsat_panel{
+	background:url(odeslat_panel.png) no-repeat;
+	width: 193px;
+	height: 253px;
+	position: absolute;
+	top: 29px;
+	left: 580px;
+}
+
+#komu{
+	position: absolute;
+	top: 45px;
+	left: 7px;
+	width: 160px;
+}
+
+#predmet{
+	position: absolute;
+	top: 100px;
+	left: 7px;
+	width: 160px;
+	background-color: #e4e4e4;
+	border-width: 1px;
+}
+
+#odeslat{
+	background-image:url(but_odeslat.png);
+	border:0px none;
+	color:white;
+	cursor:pointer;
+	height:70px;
+	left:600px;
+	position:absolute;
+	top:340px;
+	width:154px;
+}
+
+#odeslat:hover{
+	background-image:url(but_odeslat_over.png);
+	border:0px none;
+	color:white;
+	cursor:pointer;
+	height:70px;
+	left:600px;
+	position:absolute;
+	top:340px;
+	width:154px;
+}
+
+#obsah{
+	background-image:url(textarea.jpg);
+	left: 33px;
+	position:absolute;
+	top: 33px;
+	width: 530px;
+	height: 620px;
+	border-width: 0px;
+}
+
+/*
+	seznam zprav
+*/
+
+.post_detail{
+	margin:10px;
+	margin-left: 30px;
+}
+.post_icon{
+	float:left;
+	margin-right:10px;
+}
+
+.post_header{
+	padding: 5px;
+}
+
+.post_header a{
+	text-decoration: none;
+	color: #e6ad76;
+}
+
+.neprecteno{
+	font-weight: bolder;
+}
+
+
+.post_detail div.post_header{
+	color: #e6ad76;
+	font-weight: bolder;
+}
+
+.post_detail span.post_predmet{
+	color: black;
+	font-weight: bolder;
+}
+.post_detail span.post_respond{
+	font-weight: bolder;
+	text-transform:uppercase;
+}
+span.post_respond a{
+	color: #EE2F37;
+}
+.post_body{
+	padding:10px;
+	color:#EE2F37;
+	height: 540px;
+	overflow-y:scroll;
+}
+
+/*
+	MENU
+*/
+div .posta_menu{
+	height: 24px;
+}
+#posta_menu{
+	background:url(menu.png) no-repeat;
+	height:24px;
+	margin:0px;
+	padding:0px;
+	position:relative;
+	width:830px;
+}
+
+.posta_menu li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}	
+.posta_menu a {
+	display: block;
+	color:#ffcc00;
+	text-decoration: none;
+	font-size: 7pt;
+	text-align: justify;
+}
+
+#odkaz1, #odkaz1 a {
+  width: 205px; 
+	height: 24px; 
+	top: 0px; 
+	left: 0px; 
+	background:url(menu.png) 0px 0px;
+}
+#odkaz1 a:hover {
+  background:url(menu_dorucene.png) 0px -24px;
+}
+#odkaz1_akt, #odkaz1_akt a {
+  width: 205px; 
+	height: 24px; 
+	top: 0px; 
+	left: 0px; 
+	background:url(menu_dorucene.png) 0px 0px;
+}
+#odkaz2, #odkaz2 a {
+  width: 183px; 
+	height: 24px; 
+	top: 0px; 
+	left: 204px; 
+	background:url(menu.png) -204px 0px;
+}
+#odkaz2 a:hover {
+  background:url(menu_napsat.png) -204px -24px;
+}
+#odkaz2_akt, #odkaz2_akt a {
+  width: 183px; 
+	height: 24px; 
+	top: 0px; 
+	left: 204px; 
+	background:url(menu_napsat.png) -204px 0px;
+}
+#odkaz3, #odkaz3 a {
+  width: 178px; 
+	height: 24px; 
+	top: 0px; 
+	left: 390px; 
+	background:url(menu.png) -390px 0px;
+}
+#odkaz3 a:hover {
+  background:url(menu_odeslane.png) -390px -24px;
+}
+#odkaz3_akt, #odkaz3_akt a {
+  width: 178px; 
+	height: 24px; 
+	top: 0px; 
+	left: 390px; 
+	background:url(menu_odeslane.png) -390px 0px;
+}

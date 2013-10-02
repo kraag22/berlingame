@@ -1,0 +1,431 @@
+@CHARSET "UTF-8";
+
+/* 
+    statistiky
+*/
+#statistiky{
+	
+}
+
+#stat_menu{
+	height: 79px;
+	background:black url(stat_horni_menu.png) no-repeat scroll 0%;
+	position: relative;
+}
+#stat_menu_inside{
+	background:url(stat_buttony.png) no-repeat scroll 0%;
+	widht: 244px;
+	height: 70px;
+	margin-left: 15px;
+	position: relative;
+	top: 5px;
+}
+
+.stat_submenu{
+	height: 35px;
+}
+
+.stat_centrala{
+	background:url(stat_submenu.png) no-repeat 0px 0px;
+}
+.stat_centrala1{
+	background:url(stat_submenu.png) -7px -8px;
+}
+.stat_centrala1 a:hover{
+	background:url(stat_submenu.png) -7px -43px;
+}
+.stat_centrala1_sel{
+	background:url(stat_submenu.png) -7px -43px;
+}
+.stat_centrala2{
+	background:url(stat_submenu.png) -73px -8px;
+}
+.stat_centrala2 a:hover{
+	background:url(stat_submenu.png) -73px -43px;
+}
+.stat_centrala2_sel{
+	background:url(stat_submenu.png) -73px -43px;
+}
+
+.stat_porovnani{
+	background:url(stat_submenu2.png) no-repeat 0px 0px;
+}
+.stat_porovnani1{
+	background:url(stat_submenu2.png) -7px -8px;
+}
+.stat_porovnani1 a:hover{
+	background:url(stat_submenu2.png) -7px -43px;
+}
+.stat_porovnani1_sel{
+	background:url(stat_submenu2.png) -7px -43px;
+}
+.stat_porovnani2{
+	background:url(stat_submenu2.png) -73px -8px;
+}
+.stat_porovnani2 a:hover{
+	background:url(stat_submenu2.png) -73px -43px;
+}
+.stat_porovnani2_sel{
+	background:url(stat_submenu2.png) -73px -43px;
+}
+.stat_porovnani3{
+	background:url(stat_submenu2.png) -141px -8px;
+}
+.stat_porovnani3 a:hover{
+	background:url(stat_submenu2.png) -141px -43px;
+}
+.stat_porovnani3_sel{
+	background:url(stat_submenu2.png) -141px -43px;
+}
+.stat_porovnani4{
+	background:url(stat_submenu2.png) -210px -8px;
+}
+.stat_porovnani4 a:hover{
+	background:url(stat_submenu2.png) -210px -43px;
+}
+.stat_porovnani4_sel{
+	background:url(stat_submenu2.png) -210px -43px;
+}
+.stat_tym_mod{
+	background:url(stat_submenu4.png) no-repeat 0px 0px;
+}
+.stat_tym_mod1{
+	background:url(stat_submenu4.png) -7px -8px;
+}
+.stat_tym_mod1 a:hover{
+	background:url(stat_submenu4.png) -7px -43px;
+}
+.stat_tym_mod1_sel{
+	background:url(stat_submenu4.png) -7px -43px;
+}
+.stat_tym_mod2{
+	background:url(stat_submenu4.png) -73px -8px;
+}
+.stat_tym_mod2 a:hover{
+	background:url(stat_submenu4.png) -73px -43px;
+}
+.stat_tym_mod2_sel{
+	background:url(stat_submenu4.png) -73px -43px;
+}
+.stat_tym_mod3{
+	background:url(stat_submenu4.png) -141px -8px;
+}
+.stat_tym_mod3 a:hover{
+	background:url(stat_submenu4.png) -141px -43px;
+}
+.stat_tym_mod3_sel{
+	background:url(stat_submenu4.png) -141px -43px;
+}
+.stat_submenu_ul{
+	height:35px;
+	margin:0;
+	padding:0;
+	position:relative;
+	width:277px;
+}
+.stat_submenu_ul span{
+	display:none;
+}
+.stat_submenu_ul li{
+	display:block;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	position:absolute;
+}
+.stat_submenu_ul a {
+	display: block;
+}
+.stat_submenu_1, .stat_submenu_1 a{
+	width: 60px; 
+	height: 21px; 
+	top: 8px; 
+	left: 7px; 	
+}
+.stat_submenu_2, .stat_submenu_2 a{
+	width: 60px; 
+	height: 21px; 
+	top: 8px; 
+	left: 73px; 
+}
+.stat_submenu_3, .stat_submenu_3 a{
+	width: 60px; 
+	height: 21px; 
+	top: 8px; 
+	left: 141px; 
+}
+.stat_submenu_4, .stat_submenu_4 a{
+	width: 60px; 
+	height: 21px; 
+	top: 8px; 
+	left: 210px; 
+}
+
+
+
+
+
+#stat1{
+	width: 79px;
+	background:url(stat_button1.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 3px;
+	top: 3px;
+}
+ a:hover#stat1 {
+	background:url(stat_button1_over.png) no-repeat scroll 0%;
+}
+#stat1_sel{
+	width: 79px;
+	background:url(stat_button1_over.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 3px;
+	top: 3px;
+}
+#stat2{
+	width: 79px;
+	background:url(stat_button2.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 83px;
+	top: 3px;
+}
+ a:hover#stat2 {
+	background:url(stat_button2_over.png) no-repeat scroll 0%;
+}
+#stat2_sel{
+	width: 79px;
+	background:url(stat_button2_over.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 83px;
+	top: 3px;
+}
+#stat4{
+	width: 79px;
+	background:url(stat_button4.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 3px;
+	top: 36px;
+}
+ a:hover#stat4 {
+	background:url(stat_button4_over.png) no-repeat scroll 0%;
+}
+#stat4_sel{
+	width: 79px;
+	background:url(stat_button4_over.png) no-repeat scroll 0%;
+	height: 32px;
+	display:block;
+	position: absolute;
+	left: 3px;
+	top: 36px;
+}
+
+#stat_obsah{
+	min-height: 600px;
+	background:black url(stat_obsah.png) repeat-y scroll 0% 50%;
+	width:277px;
+}
+#stat_obsah_utoky{
+	min-height: 600px;
+	background:black url(stat_prazdne_sklo.png) repeat-y scroll 0% 50%;
+	width:277px;
+}
+
+#por_obsah_jednotky{
+	min-height: 600px;
+	background:black url(stat_obsah_utoky.png) repeat-y scroll 0% 50%;
+	width:277px;
+}
+
+#stat_obsah_por_sektory{
+	min-height: 600px;
+	background:black url(stat_obsah_por_sek.png) repeat-y scroll 0% 50%;
+	width:277px;
+}
+
+#stat_footer{
+	background:black url(stat_dolni_menu.png) no-repeat scroll 0%;
+	height:7px;
+}
+
+
+#stat_table {
+	margin-left: 4px;
+	font-size:12px;
+}
+
+.first td{
+	border-bottom: 1px;
+	border-color: black;
+	border-bottom-style: solid;
+	color: white;
+}
+
+.prvni{
+	width: 104px;
+	text-align: left;
+}
+
+.druhy{
+	width: 48px;
+	text-align: center;
+}
+
+.treti{
+	width: 47px;
+	text-align: center;
+	padding-right:3px;
+}
+
+.ctvrty{
+	width: 49px;
+	text-align: center;
+
+}
+
+#por_table{
+	color: white;
+	font-size: 12px;
+	margin-left: 5px;
+}
+
+.por_prvni{
+	width: 35px;
+	text-align: center;
+}
+
+.por_druhy{
+	width: 146px;
+	text-align: center;
+}
+.por_jednotky_druhy{
+	width: 135px;
+	text-align: center;
+}
+
+.por_treti{
+	width: 69px;
+	text-align: center;
+	padding-right:3px;
+	color: gold;
+}
+.por_jednotky_treti{
+	width: 80px;
+	text-align: center;
+	padding-right:3px;
+	color: gold;
+}
+#por_table .lichy td{
+	background-color: #656161;
+}
+#por_table .sudy td{
+	background-color: #3f5e7b;
+}
+
+#stat_table .sektor {
+	color: gold;
+}
+
+#stat_table .zold {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	
+}
+
+/* 
+    tymove statistiky
+*/
+#tym_uspesnost_table{
+	color: white;
+	font-size: 11px;
+	margin-left: 5px;
+  width: 260px;
+}
+
+#tym_uspesnost_nadpis{
+  font-weight: bold;
+	text-align: center;	
+}
+
+#tym_uspesnost_left_img{
+  background:url(tym_uspesnost_spojenci.png) no-repeat scroll 0%;
+  height: 97px;
+	width: 128px;
+}
+
+.tym_uspesnost_img_txt{
+	font-size: 26px;
+  font-weight: bold;
+	margin-right: 6px;
+	position: relative;
+  text-align: right;
+	top: 33px;
+}
+
+#tym_uspesnost_right_img{
+  background:url(tym_uspesnost_soveti.png) no-repeat scroll 0%;
+  height: 97px;
+	width: 128px;
+}
+
+#tym_sestava_wrapper{
+	margin-left: 6px;
+	position: relative;
+}
+
+#tym_sestava_znaky{
+	background:url(tym_sestava_znaky.png) no-repeat scroll 0%;
+	height: 50px;
+	width: 264px;
+	display: block;
+}
+
+#tym_sestava_podklad{
+	background:url(tym_sestava_podklad.png) no-repeat scroll 0%;
+	height: 414px;
+	width: 264px;
+	display: block;
+}
+
+.tym_sestava{
+	position: absolute;
+	width: 120px;
+	height: 250px;
+	
+}
+
+.tym_sestava_vlevo{
+	left: 5px;
+	top: 60px;
+}
+.tym_sestava_vpravo{
+	left: 135px;
+	top: 60px;
+}
+	
+.tym_sestava_spoluhrac {
+	color: orange;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+	margin-left: 16px;
+	padding-top: 2px;
+	text-align: left;
+}
+
+.tym_prazdny_div{
+	min-height: 600px;
+	background:black url(stat_prazdne_sklo.png) repeat-y scroll 0% 50%;
+	width:277px;
+}

@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+#veleni_akce_menu {
+	background:black url(vel_horni_menu.png) no-repeat scroll 0%;
+	margin-left: 1px;
+	height: 5px;
+	position: relative;
+}
+
+#veleni_akce_obsah{
+	background:black url(vel_obsah.png) repeat-y scroll 0% 50%;
+	min-height: 470px;
+	padding: 7px;
+	margin-left: 1px;
+	font-size: 12px;
+}
+
+#veleni_akce_footer{
+	background:black url(vel_dolni_menu.png) no-repeat scroll 0%;
+	height:19px;
+	margin-left: 1px;
+}
+
+.veleni_title {
+	padding-top: 20px;
+	margin-left: 60px;
+	font-size: 14pt;
+	margin-bottom: 5px;
+}
+.veleni_zeme {
+	font-size:12px;
+	margin-left: 13px;
+	position:absolute;
+	left: 10px;
+	top: 60px;
+}
+
+.veleni_chyba{
+	position:absolute;
+	top:80px;
+	left:20px;
+	font-size:11px;
+	width:250px;
+	color: red;
+}
+
+#podpora_akce{
+	background-color:#2e302d;
+  	color: gold;
+  	width: 220px;
+}
+
+#podpora_cil{
+	background-color:#2e302d;
+  	color: gold;
+  	width: 120px;
+}
+#podpora_vyber_zemi_button_div{
+	margin-left: 80px;
+}
+#podpora_vyber_zemi_button{
+	background-image:url(podpora_vyber_button.png);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	cursor: pointer;
+}
+#podpora_naplanovani_utoku{
+	background-image:url(letectvo_naplanovat.jpg);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	left:15px;
+	position:absolute;
+	top:131px;
+	cursor: pointer;
+}
+
+#text1{
+	position:relative;
+	left:20px;
+	top:6px;
+}
+
+#text2{
+	position:absolute;
+	left:86px;
+	top:163px;
+}
+
+#text3{
+	position:absolute;
+	left:13px;
+	top:34px;
+}
+
+#text4{
+	position:absolute;
+	left:13px;
+	top:77px;
+}
+
+#text5{
+	position:absolute;
+	left:9px;
+	top:0px;
+}
+
+#text6{
+	position:absolute;
+	left:7px;
+	top:39px;
+}
+
+#veleni_obrazek_chyba{
+	color:red;
+	font-size:small;
+	font-weight:bold;
+	padding:10px;
+}
+
+#veleni_obrazek{
+	width: 277px;
+	height: 0px;
+}

@@ -1,0 +1,565 @@
+@CHARSET "UTF-8";
+
+#n_text1{
+	position: absolute;
+    left: 90px;
+    top: 477px;
+} 
+
+#n_text2{
+	position: absolute;
+    left: 20px;
+    top: 497px;
+}
+#n_text3{
+	position: absolute;
+    left: 73px;
+    top: 592px;
+}
+#n_text4{
+	position: absolute;
+    left: 20px;
+    top: 650px;
+}
+#n_text5{
+	position: absolute;
+    left: 17px;
+    top: 612px;
+}
+#n_text6{
+	position: absolute;
+    left: 97px;
+    top: 127px;
+}
+#n_text7{
+	position: absolute;
+    left: 95px;
+    top: 236px;
+}
+#n_text8{
+	position: absolute;
+    left: 87px;
+    top: 70px;
+}
+#helma{
+	position: absolute;
+    left: 212px;
+    top: 9px;
+}
+#infrastruktura{
+	position: absolute;
+    left: 24px;
+    top: 120px;
+}
+#dalekohled{
+	position: absolute;
+    left: 22px;
+    top: 418px;
+}
+#pechota{
+	position: absolute;
+    left: 180px;
+    top: 147px;
+}
+#tanky{
+	position: absolute;
+    left: 97px;
+    top: 147px;
+}
+#napis_postu_male{
+	position: absolute;
+    left: 213px;
+    top: 0px;
+    border: 0px;
+}
+
+#okraj{
+	position: absolute;
+    left: 9px;
+    top: 7px;
+}
+
+#velky_symbol{
+	position: absolute;
+    left: 20px;
+    top: 152px;
+}
+
+/*
+   info - cizi zeme
+*/
+
+.info_cizi_letectvo_chyba{
+	position:absolute;
+	top:656px;
+	left:27px;
+	font-size:11px;
+	width:235px;
+	color: red;
+}
+
+.info_cizi_podpora_chyba{
+	position:absolute;
+	top:520px;
+	left:27px;
+	font-size:11px;
+	width:235px;
+	color: red;
+}
+#info_strana_neutral{
+  position: absolute;
+  font-size: 10px;
+  top: 85px;
+  left: 20px;
+  width:239px;
+  height: 30px;
+  padding-left:3px;
+  }
+
+#info_strana {
+  position: absolute;
+  font-size: 12px;
+  top: 85px;
+  left: 20px;
+  width:239px;
+  height: 30px;
+  padding-left:3px;
+}
+
+#podpora_neutralka{
+	position:absolute;
+	top:515px;
+	left:27px;
+	background-color:#2e302d;
+	color: gold;
+	width: 220px;
+}
+
+#podpora_naplanovani_utoku_neutralka{
+	background-image:url(neutralka_rozkaz_k_utoku_btn.png);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	left:97px;
+	position:absolute;
+	top:542px;
+	cursor: pointer;
+}
+
+#hracova_zem_pruchody{
+	background-color:#2e302d;
+	color: gold;
+	width: 120px;
+}
+
+#letectvo_typy_utoku_neutralka{
+	position:absolute;
+	top:626px;
+	left:27px;
+	background-color:#2e302d;
+	color: gold;
+	width: 220px;
+}
+
+#letectvo_sila_neutralka{
+	position:absolute;
+	top:665px;
+	left:27px;
+	background-color:#2e302d;
+	color: gold;
+	width: 150px;
+}
+
+#letectvo_naplanovani_utoku_neutralka{
+	background-image:url(neutralka_rozkaz_k_utoku_btn.png);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	left:97px;
+	position:absolute;
+	top:672px;
+	cursor: pointer;
+}
+.nazev_cizy_zeme{
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  color: white;
+}
+
+.infrastr_cizi_zem{
+	font-size: 12px;
+	position: absolute;
+	top: 124px;
+	left: 60px;
+}
+.body_vlivu_cizi_zem {
+  position: absolute;
+  color: #d00e0d;
+  top: 15px;
+  left: 230px;
+  font-weight: bold;
+}
+
+#obrazek_hrace_cizi_zem {
+  position: absolute;
+  font-size: 10px;
+  top: 153px;
+  left: 21px;
+  width:70px;
+  height: 77px;
+}
+
+#bonusy_sektoru_cizi_zem {
+  position: absolute;
+  font-size: 10px;
+  top: 253px;
+  left: 21px;
+  width: 238px;
+  height: 158px;
+  padding-left: 3px;
+}
+#vlivy_cizi_zem {
+  position: absolute;
+  font-size: 10px;
+  top: 415px;
+  left: 20px;
+  width: 239px;
+  height: 32px;
+}
+
+/*
+	HRACOVA ZEM
+	*/
+
+#h_text1{
+	position: absolute;
+    left: 86px;
+    top: 224px;
+}
+
+#h_helma{
+	position: absolute;
+    left: 208px;
+    top: 29px;
+}
+
+#h_okraj{
+	position: absolute;
+    left: 7px;
+    top: 33px;
+} 
+
+#h_pozadavek_presun{
+	position: absolute;
+    left: 14px;
+    top: 429px;
+}
+
+#h_suroviny{
+	position: absolute;
+    left: 27px;
+    top: 110px;
+}
+
+#h_palivo{
+	position: absolute;
+    left: 27px;
+    top: 147px;
+}
+
+#h_bv_male{
+	position: absolute;
+    left: 27px;
+    top: 187px;
+}
+
+#h_infra{
+	position: absolute;
+    left: 30px;
+    top: 75px;
+} 
+
+#cena_opravy{
+  font-size: 12px;
+  position: absolute;
+  top: 85px;
+  left: 125px;
+}
+
+#cena_opravy .chyba{
+  font-size: 12px;
+  color: red;
+}
+
+#zasoby_kolo{
+  font-size: 12px;
+  position: absolute;
+  top:  120px;
+  left: 90px;
+  width: 20px;
+  text-align: right;
+}
+
+#palivo_kolo{
+  font-size: 12px;
+  position: absolute;
+  top:  155px;
+  left: 90px;
+  width: 20px;
+  text-align: right;
+}
+
+#bvlivu_kolo{
+  font-size: 12px;
+  position: absolute;
+  top:  190px;
+  left: 90px;
+  width: 20px;
+  text-align: right;
+}
+
+#bonusy_sektoru{
+  font-size: 12px;
+  position: absolute;
+  top:  250px;
+  left: 20px;
+  font-size: 10px;
+}
+
+#vlivy_hrac{
+  position: absolute;
+  top:  633px;
+  left: 5px;
+  width: 268px;
+  height: 32px;
+}
+
+#zadat_pruchod{
+  font-size: 12px;
+  position: absolute;
+  top:  450px;
+  left: 20px;
+}
+
+#zadat_pruchod_frm{
+  position: absolute;
+  top: 450px;
+  left: 20px;
+}
+
+#pozadat_btn{
+  position: absolute;
+  top: 0px;
+  left: 125px;
+  background-image:url(pozadat_btn.jpg);
+	border:0px none;
+	color:white;
+	cursor:pointer;
+	height:21px;
+	width:51px;
+}
+#zadosti {
+  font-size: 12px;
+  position: absolute;
+  top: 475px;
+  left: 20px;
+  width: 240px;
+  height: 110px;
+}
+
+#platne_pruchody {
+  font-size: 12px;
+  position: absolute;
+  top: 555px;
+  left: 20px;
+}
+
+/*
+  menu hracova zeme
+*/
+#menu {
+	background: url(menu_my_country.jpg) no-repeat;
+	height: 25px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#menu2 {
+	width: 277px; 
+	height: 25px; 
+	background:url(menu_my_country.jpg) no-repeat; 
+	padding: 0px; 
+	margin: 0px; 
+	position:relative;
+}
+
+#menu2 li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}
+
+#menu2 a {
+	display: block;
+}
+
+#menu2 span {
+	display:none;
+	font-size: 12pt;
+}
+
+#odkaz1, #odkaz1 a {
+	width: 62px; 
+	height: 25px; 
+	top: 2px; 
+	left: 5px; 
+	background:url(menu_my_country.jpg) -5px -2px
+}
+
+#odkaz1 a:hover {
+	background:url(menu_my_country.jpg) -5px -27px;
+}
+
+#odkaz2, #odkaz2 a {
+	width: 65px; 
+	height: 25px; 
+	top: 2px; 
+	left: 70px; 
+	background: url(menu_my_country.jpg) -70px -2px;
+}
+
+#odkaz2 a:hover {
+	background:url(menu_my_country.jpg) -70px -27px;
+}
+
+
+#odkaz3, #odkaz3 a {
+	width: 65px; 
+	height: 25px; 
+	top: 2px; 
+	left: 138px; 
+	background:url(menu_my_country.jpg) -138px -2px;
+}
+
+#odkaz3 a:hover {
+	background:url(menu_my_country.jpg) -138px -27px;
+}
+
+#odkaz4, #odkaz4 a {
+	width: 75px; 
+	height: 25px; 
+	top: 2px; 
+	left: 204px; 
+	background:url(menu_my_country.jpg) -204px -2px;
+}
+
+#odkaz4 a:hover {
+	background:url(menu_my_country.jpg) -204px -27px;
+}
+
+.nazev_zeme {
+  position: absolute;
+  top: 41px;
+  left: 20px;
+  color: white;
+}
+
+.body_vlivu {
+  position: absolute;
+  color: black;
+  top: 41px;
+  left: 230px;
+  font-weight: bold;
+}
+
+.infrastr {
+  font-size: 12px;
+  position: absolute;
+  top: 85px;
+  left: 90px;
+}
+
+#opravit_btn {
+	background: url(opravit_btn.jpg);
+	height: 21px;
+	width: 51px;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	top: 82px;
+	left: 130px;
+	
+}
+/*
+#opravit_btn {
+	width: 51px; 
+	height: 21px; 
+	background:url(opravit_btn.jpg); 
+	padding: 0px; 
+	margin: 0px; 
+	position: relative;
+}
+*/
+#opravit_btn li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}
+
+#opravit_btn a {
+	display: block;
+}
+
+#opravit_btn span {
+	display:none;
+	font-size: 12pt;
+}
+
+
+#odkaz5, #odkaz5 a {
+	width: 51px; 
+	height: 21px; 
+	top: 0px; 
+	left: 0px; 
+	background:url(opravit_btn.jpg) -0px -0px;
+}
+
+#odkaz5 a:hover {
+	background:url(opravit_btn.jpg) -0px -21px;
+}
+
+
+#pechota_cizi_zem{
+  font-weight: bold;
+  position: absolute;
+  font-size: 14px;
+  left: 180px;
+  top: 147px;
+  color: white;
+  width: 78px;
+  height: 44px;
+}
+
+#inside_text{
+	padding-left: 30px;
+	padding-top: 14px;
+}
+
+#tanky_cizi_zem{
+  font-weight: bold;
+  position: absolute;
+  font-size: 14px;
+  left: 97px;
+  top: 147px;
+  color: white;
+  width: 78px;
+  height: 44px;
+}
+

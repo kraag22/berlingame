@@ -1,0 +1,377 @@
+@CHARSET "UTF-8";
+
+.reklama_nadpis{ font-size:20px; color:Red;}
+
+*.loginbar{
+font-size:18px;
+}
+#error{
+color:red;font-size:18px;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: Gainsboro;
+}
+
+
+
+.info_polozka {
+	text-align: left;
+	font-size: 12px;
+  	color: white;
+  	font-weight: bold;
+  	float: left;
+}
+.info_hodnota {
+  	float: right;
+  	margin-right: 0;
+	text-align: right;
+  	font-size: 10px;
+  	color: gold;
+}
+
+
+#info_jednotky{
+  position: absolute;
+  font-size: 10px;
+  top: 196px;
+  left: 95px;
+  width: 165px;
+  height: 36px;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+
+#pechota_sekt{
+  font-size: 10px;
+  position: absolute;
+  top: 71px;
+  left: 175px;
+}
+
+#pechota_pocet {
+  font-size: 10px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 0px;
+  position: absolute;
+  top: 71px;
+  left: 220px;
+  text-align: right;
+}
+
+#tanky_sekt {
+  font-size: 10px;
+  position: absolute;
+  top: 157px;
+  left: 175px;
+}
+
+#tanky_pocet {
+  font-size: 10px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 0px;
+  position: absolute;
+  top: 157px;
+  left: 220px;
+  text-align: right;
+}
+
+#cil_utoku_sel{
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 220px;
+  left: 30px;
+  background-color:#2e302d;
+  color: gold;
+  width: 120px;
+}
+
+#typ_utoku_sel{
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 220px;
+  left: 170px;
+  background-color:#2e302d;
+  color: gold;
+  width: 90px;
+}
+
+#utok_btn{
+  position: absolute;
+  top: 248px;
+  left: 81px;
+}
+
+#seznam_utoku {
+  font-size: 12px;
+  position: absolute;
+  top: 508px;
+  left: 20px;
+}
+
+#odvolat_btn{
+  position: absolute;
+  top: 695px;
+  left: 98px;
+}
+
+#podrobnosti_utoku{
+  position: absolute;
+  top: 297px;
+  left: 15px;
+  width:247px;
+  height: 120px;
+  padding: 5px;
+  font-size: 9pt;
+}
+
+#podrobnosti_utoku .chyba{
+	color:red;
+	font-weight: bold;
+}
+
+/*
+  letectvo
+*/
+	
+#menu_letectvo{
+  background: url(menu_letectvo.jpg) no-repeat;
+	height: 24px;
+	padding: 0px;
+	margin: 0px;
+}
+#menu_letectvo2{
+  width: 277px; 
+	height: 24px; 
+	background:url(menu_letectvo.jpg) no-repeat; 
+	padding: 0px; 
+	margin: 0px; 
+	position:relative;
+}
+
+#menu_letectvo2 li {
+	list-style:none; 
+	margin:0; 
+	padding:0; 
+	display:block; 
+	position:absolute;
+}
+#menu_letectvo2 a {
+	display: block;
+}
+#menu_letectvo2 span {
+	display:none;
+	font-size: 12pt;
+}
+
+#let_anchor1, #let_anchor1 a {
+  width: 87px; 
+	height: 24px; 
+	top: 2px; 
+	left: 5px; 
+	background:url(menu_letectvo.jpg) -5px -2px;
+}
+#let_anchor1 a:hover {
+  background:url(menu_letectvo.jpg) -5px -26px;
+}
+ 
+#let_anchor2, #let_anchor2 a{
+  width: 87px; 
+	height: 24px; 
+	top: 2px; 
+	left: 95px; 
+	background:url(menu_letectvo_poslat_utok.jpg) -95px -2px;
+} 
+#let_anchor2 a:hover {
+  background:url(menu_letectvo_poslat_utok.jpg) -95px -26px;
+}
+
+
+#let_anchor3, #let_anchor3 a{
+  width: 87px; 
+	height: 24px; 
+	top: 2px; 
+	left: 185px; 
+	background:url(menu_letectvo.jpg) -185px -2px
+}
+
+#let_anchor3 a:hover {
+  background:url(menu_letectvo.jpg) -185px -26px;
+}
+
+
+
+
+#letadla_na_ceste_menu{
+	height: 5px;
+	background:black url(let_horni_menu.png) no-repeat scroll 0%;
+	position: relative;
+	margin-left: 1px;
+}
+
+#letadla_na_ceste{
+	background:black url(let_obsah.png) repeat-y scroll 0% 50%;
+	min-height: 270px;
+	padding: 7px;
+	margin-left: 1px;
+	font-size: 12px;
+}
+
+#letadla_na_ceste_footer{
+	background:black url(stat_dolni_menu.png) no-repeat scroll 0%;
+	height:7px;
+	margin-left: 1px;
+}
+
+
+
+#letectvo_budovani {
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+#letectvo_letecka_sila{
+	color:#F2C304;
+	position:absolute;top:76px;left:242px;
+	font-weight: bold;
+}
+
+#letectvo_cena_sily{
+	font-size: 12px;
+	position:absolute;top:211px;left:79px;
+}
+
+#letectvo_zprava{
+	font-size: 12px;
+	position:absolute;top:278px;left:20px;
+	width:238px;
+	height:150px;
+	padding:5px;
+}
+
+#letectvo_navyseni{
+	background:black none repeat scroll 0%;
+	border:0px none;
+	color:white;
+	font-size:10px;
+	font-weight:bold;
+	left:28px;
+	position:absolute;
+	text-align:right;
+	top:212px;
+}
+
+#letectvo_navyseni_povolat{
+	background-image:url(letectvo_povolat.jpg);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:52px;
+	left:125px;
+	position:absolute;
+	top:212px;
+	cursor: pointer;
+	
+}
+
+#letectvo_utok {
+  margin-left: 13px;
+  font-size: 12px;
+  height: 325px;
+}
+
+#letectvo_akce{
+  margin-left: 13px;
+  font-size: 12px;
+}
+#letectvo_vyber_zemi{
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+#letectvo_typy_utoku{
+	position:absolute;
+	top:188px;
+	left:27px;
+	background-color:#2e302d;
+  	color: gold;
+  	width: 220px;
+}
+
+#letectvo_cil{
+	position:absolute;
+	top:237px;
+	left:27px;
+	background-color:#2e302d;
+  	color: gold;
+  	width: 120px;
+}
+
+#letectvo_sila{
+	position:absolute;
+	top:285px;
+	left:27px;
+	background-color:#2e302d;
+  	color: gold;
+  	width: 100px;
+}
+
+#letectvo_naplanovani_utoku{
+	background-image:url(letectvo_naplanovat.jpg);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	left:27px;
+	position:absolute;
+	top:265px;
+	cursor: pointer;
+}
+
+#letectvo_naplanovani_utoku2{
+	background-image:url(letectvo_naplanovat.jpg);
+	border:0px none;
+	color:white;
+	height:20px;
+	width:79px;
+	cursor: pointer;
+}
+
+
+.letectvo_chyba{
+	position:absolute;
+	top:317px;
+	left:27px;
+	font-size:11px;
+	width:235px;
+	color: red;
+}
+
+
+/*
+  CHYBY
+*/
+
+#chyba {
+	color: red;
+	font-weight:bold;
+	font-size: small;
+	padding: 10px;
+}
+
+
+.intro{
+	text-align: center;
+	margin: 10px;
+}

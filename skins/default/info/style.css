@@ -1,0 +1,236 @@
+body {
+    	background: url("body_bg.jpg") repeat-x #491713;
+    	text-align: center;
+    	padding: 5px;
+    	padding-bottom: 0;
+    	margin-bottom: 0;
+    }
+    #wrap_margin {
+       margin-top: 8px;
+       margin-bottom: 8px;
+	     padding: 0;
+    }
+    #wrap {
+	     width: 940px;
+	     margin: 0 auto;
+	     padding: 0;
+	     text-align: left;
+    }
+    #wrap_top{
+       background: url(ramecek_top.png);
+	     height: 6px;
+    }
+    #wrap_body{
+       background: url(ramecek_body.png) repeat-y;
+       height: 625px;
+    }
+    #wrap_bottom{
+       background: url(ramecek_bottom.png);
+	     height: 5px;
+    }
+
+    #cont1 { /* = wrap_body without padding */
+       position: relative;
+    }
+    
+    #cont2 { /* right container */
+       position: absolute;
+    	left: 650px;
+    	top: 8px;
+	     width: 277px;
+   
+       padding: 0;
+    }
+    
+    #cont2a {
+       width: 100%;    
+       height: 100%;    
+    }
+    #cont2a_top{
+       background: url(ramecek_right_top.png);
+	     height: 3px;
+    }
+    #cont2a_body{
+       background: url(ramecek_right_body.png) repeat-y;
+       max-height: 95px;
+    }
+    #cont2a_bottom{
+       background: url(ramecek_right_bottom.png);
+	     height: 3px;
+       margin-bottom: 10px;
+    }
+    #cont2b_top{
+       background: url(ramecek_right_top.png);
+	     height: 3px;
+    }
+    #cont2b_body{
+       background: url(ramecek_right_body.png) repeat-y;
+       height: 200px;
+    }
+    #cont2b_bottom{
+       background: url(ramecek_right_bottom.png);
+	     height: 3px;
+       margin-bottom: 10px;
+    }
+    #cont2c_top{
+       background: url(ramecek_right_top.png);
+	     height: 3px;
+    }
+    #cont2c_body{
+       background: url(ramecek_right_body.png) repeat-y;
+       
+    }
+    #cont2c_body a {
+       color: transparent;
+       margin-left: 3px;
+       display: block;
+       
+    }
+    #cont2c_bottom{
+       background: url(ramecek_right_bottom.png);
+	     height: 3px;
+       margin-bottom: 10px;
+    }
+     
+    
+    #cont2button {
+      	text-align: center;
+       padding-top: 13px;
+       padding-bottom: 8px;
+    }
+    #cont2button a {
+       color: transparent;
+    }
+
+    
+    #cont3 { /* left container */
+    	position: absolute;
+    	left: 16px;
+    	top: 8px;
+	    width: 626px;
+        padding: 0;
+    }
+    #cont3a {
+       width: 100%;    
+       height: 100%;    
+    }
+    #cont3a_top{
+       background: url(ramecek_left_top.png);
+	     height: 3px;
+    }
+    #cont3a_body{
+       background: url(ramecek_left_body.png) repeat-y;
+       padding: 3px;
+       min-height: 130px;
+    }
+    #cont3a_image{
+    	margin-left: 5px;
+    	float: left;
+    }
+    #cont3a_text{
+    	margin-left: 165px;
+    }
+    #cont3a_bottom{
+       background: url(ramecek_left_bottom.png);
+	     height: 3px;
+       margin-bottom: 10px;
+    }
+    #cont3b_top{
+       background: url(ramecek_left_top.png);
+	     height: 3px;
+    }
+    #cont3b_body{
+       background: url(ramecek_left_body.png) repeat-y;
+       height: 440px;
+    }
+    #cont3b_bottom{
+       background: url(ramecek_left_bottom.png);
+	     height: 3px;
+       margin-bottom: 10px;
+    }
+    
+/**** Texty *****/
+.titulek { /* spolecne pro vsechny titulky (zluta barva)  */
+	color: #FFC600;
+}
+
+.podminky {
+  font-size: 11pt;
+  font-weight: bold;
+  padding: 10px;
+  padding-top: 5px;
+}
+
+.podminky_text {
+	color: white;
+  font-size: 9pt;
+  padding: 0px 0px 10px 0px;
+  margin-left: 20px;
+  margin-right: 5px;	
+}
+
+.podminky_text ul {
+  margin-top: 0px;	
+  margin-left: 0px;
+  padding-left: 0px;	
+}
+
+.podminky_text li {
+  padding-bottom: 6px;	
+}
+
+.titulek_scenar_big { 
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.titulek_scenar_big_left { 
+	color: #FFC600;
+  display: inline;
+  font-size: 16pt;
+  margin-left: 12px;	
+  margin-top: 5px;	
+}
+
+.titulek_scenar_big_right { 
+	color: white;
+  display: inline;
+  font-size: 14pt;
+  padding-left: 5px;
+}
+
+.titulek_scenar_small{ 
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+.titulek_scenar_small_left { 
+	color: #FFC600;
+  display: inline;
+  font-size: 12pt;
+  margin-left: 12px;	
+}
+
+.titulek_scenar_small_right { 
+	color: white;
+  display: inline;
+  font-size: 11pt;
+  padding-left: 5px;
+}
+
+.titulek_scenar_small_right_herniden { 
+	color: green;
+  display: inline;
+  font-size: 11pt;
+  padding-left: 5px;
+}
+
+.uvod_scenare_text {
+	color: grey;
+  font-size: 10pt;
+  margin-left: -10px;	
+	padding: 0px 10px 10px 25px;	
+}
