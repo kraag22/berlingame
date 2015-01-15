@@ -2,7 +2,7 @@
 	$text ='';
 	$sudy_lichy = 'lichy';
 	
-	if( isset($_GET['rok']) && in_array($_GET['rok'], array(2008,2009,2010,2011,2012)) ){
+	if( isset($_GET['rok']) && is_numeric($_GET['rok']) ){
 		$rok = $_GET['rok'];
 	}
 	else{
@@ -38,7 +38,13 @@
 		$text .= '<a href="zebricky.php?rok='.($rok - 1).'">
 		<img src="./skins/default/zebricky/left.png" style="float:left; border:0px;" /></a>';
 	}
-	$text .= '<img src="./skins/default/zebricky/'.$rok.'.png" style="float:left;" />';
+
+    if ($rok > 2012) {
+        $text .= '<div style="float:left;font-size:13px;color:rgb(45,100,25);margin-top:4px;">'.htmlsafe($rok).'</div>';
+    }
+    else {
+        $text .= '<img src="./skins/default/zebricky/'.$rok.'.png" style="float:left;" />';
+    }
 	
 	if ($rok != date('Y')) {
 		$text .= '<a href="zebricky.php?rok='.($rok + 1).'">
