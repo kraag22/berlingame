@@ -24,18 +24,18 @@ class Printer {
                 foreach ($page->css as $index => $value) {
                  echo   '       <link rel="stylesheet" type="text/css" href="'.$value.'" media="screen,projection" />'."\n";
                 }
-              
+
   				echo	'	<link rel="shortcut icon" href="favicon.ico" />'."\n";
-  		
+
                 echo    '       <meta name="description" content="'.$page->headline.'" />'."\n".
                                 '       <meta name="copyright" content="'.$page->copyright.'" />'."\n".
                                 '       <meta name="author" content="'.$page->document_author.'" />'."\n".
                                 '       <meta name="robots" content="'.$page->robots.'" />'."\n";
 		        foreach ($page->scripts as $index => $value) {
-		    	 	echo	'	<script language="'.$value["language"].'" src="'.$value["fileName"].'" type="'.$value["type"].'"></script>'."\n";	
-				}		
+		    	 	echo	'	<script language="'.$value["language"].'" src="'.$value["fileName"].'" type="'.$value["type"].'"></script>'."\n";
+				}
 				foreach ($page->pub_javascripts as $index => $value) {
-		    	 	echo	'	<script language="JavaScript" src="'.$value.'" type="text/javascript"></script>'."\n";	
+		    	 	echo	'	<script language="JavaScript" src="'.$value.'" type="text/javascript"></script>'."\n";
 				}
         echo "
         <script language=\"javascript\" type=\"text/javascript\">
@@ -63,7 +63,7 @@ echo '</script>';
 <script type="text/javascript" src="lightbox/scriptaculous.js?load=effects,builder"></script>
 <script type="text/javascript" src="lightbox/lightbox.js"></script>';
 				echo '<link rel="stylesheet" href="lightbox/lightbox.css" type="text/css" media="screen" />';
-				
+
                 echo    '</head>'."\n";
 
 //test na IE6
@@ -84,16 +84,16 @@ echo '<div id="container1">' . "\n" .
 				<a href="index.php" border="0" title="">
 				<img src="./skins/default/index/razitko.png" border="0" id="razitko" alt="razitko" />
 				</a>
-				
+
 				<a href="index.php" border="0" class="logo" title="www.berlingame.cz">
 				</a>
 				<div id="registrovani_hraci">Registrovaných hráčů: ';
 				//pocet registrovanych hracu
 		        if (isset($page->elements['registrovani_hraci'])) {
 					echo $page->elements['registrovani_hraci']->text;
-				}				
+				}
 				echo'</div>
-				
+
 				' . "\n" .
           '</div>'."\n";
 echo '<div id="menu">' . "\n" .'
@@ -102,80 +102,13 @@ echo '<div id="menu">' . "\n" .'
 	  <div id="container_top">' . "\n" .'
 	    <div id="container_bottom">' . "\n" .'
 	      <div id="menu_content">' . "\n";
-	      
+
 	echo $page->elements['main_menu']->draw();
-	
+
 	echo "</div>\n
 	    </div>\n
 	  </div>\n
 	</div>\n";
-//partnerske weby
-
-//primat
-echo '
-
-<div class="partner">
-<a href="http://www.military.cz" title="Archiv vojenské techniky" target="_blank">
-<img width="88" height="33" border="0" src="./images/military.gif" /></a>
-</div>
-
-<div class="partner">
-<a href="http://www.primat.cz" title="Primát - studijní materiály" target="_blank">
-<img width="88" height="31" border="0" src="http://www.primat.cz/soubory/88_31.png" /></a>
-</div>';
-
-echo '<div class="partner">
-<a href="http://www.valka.cz" title="Valka.cz" target="_blank">
-<img width="88" height="31" border="0" src="./images/valka.gif" /></a>
-</div>';
-
-echo '<div class="partner">
-<a href="http://www.specwar.info" title="Spec war - svět moderního válčení" target="_blank">
-<img width="88" height="31" border="0" src="./images/specwar.gif" /></a>
-</div>';
-
-echo '
-<div class="partner">
-<a href="http://webove-hry.ic.cz/" target="_blank">
-<img title="webové hry" height="31" src="./images/Banner_Wh_88x31.gif" width="88" border="0">
-</a>
-</div>';
-
-echo '
-<div class="partner">
-<a href="http://www.militaryfoto.sk" target="_blank">
-<img src="./images/militarysk.gif" alt="military foto" border="0" width="88" height="35">
-</a>
-</div>';
-
-echo '
-<div class="partner">
-<a href="http://www.valecnavidea.cekuj.net/" target="_blank">
-<img src="./images/valecnavidea.jpg" alt="valecna videa" border="0" width="88" height="31">
-</a>
-</div>';
-
-echo '
-<div class="partner">
-<a href="http://top-armyshop.cz" title="Top Armyshop - Army, Security, Camping, Outdoor" target="_blank">
-		<img src="http://www.safetyagency.cz/banner/banner_tiny_link.jpg" style="border: 0px; width: 88px; height: 31px">
-		</a>
-</div>
-';
-
-echo '
-<div class="partner">
-<a href="http://raketka.cz/" target="_blank"><img src="http://raketka.cz/public/bannery/banner-88x31.gif" alt="online hry raketka.cz"></a>
-</div>
-';
-
-echo '
-<div style=" margin-left: 15px;margin-top: 6px;font-size:14px;">
-<a href="http://www.topwebhry.cz" target="_blank">
-www.topwebhry.cz
-</a>
-</div>';
-
 echo "</div>\n
 </div>\n";
 
@@ -214,7 +147,7 @@ echo "</div>\n" .
 		echo $GOOGLE_ANALYTICS;
 	}
 
-echo '</body>     
+echo '</body>
 </html>
 ' ;
         }
