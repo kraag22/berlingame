@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+
+    db:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+        volumes:
+          - path_to_mysql_data:/var/lib/mysql
+
+    adminer:
+        image: adminer
+        ports:
+          - 8080:8080
+
+    server:
+        image: kraag22/php-mysql:latest
+        ports:
+          - 3333:80
+        volumes:
+          - path_to_src:/var/www/html/
