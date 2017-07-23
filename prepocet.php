@@ -36,20 +36,11 @@ if(is_file($lockfile)){
 	die('prepocet je jiz spusten. nejde spustit 2x najednou');
 }
 
-if(is_file($secondlock)){
-	fwrite($calls_file, "prepocet se nyni spustit neda - jiz probehl \n");
-	die('prepocet se nyni spustit neda - jiz probehl');
-}
-
 // vytvoreni lock souboru
 $lfile = fopen( $lockfile, 'w');
 $fwrite = fwrite($lfile, "prepocet");
 fclose($lfile);
 
-// vytvoreni dvojnasobne ochrany spusteni prepoctu
-$lfile = fopen( $secondlock, 'w');
-$fwrite = fwrite($lfile, "prepocet");
-fclose($lfile);
 
 // vytvoreni logoveho souboru
 $myFile = date("Y-n-j_g-i-s");

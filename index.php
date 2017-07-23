@@ -34,12 +34,6 @@ require_once("${DIR_LIB}page_elements/main_menu.php");
 require_once("${DIR_LIB}page_elements/side_menu.php");
 require_once("${DIR_LIB}page_elements/I_novinky.php");
 
-if( date('G') > 12 ){
-	if( is_file($secondlock) ){
-		unlink($secondlock);
-	}
-}
-
 $main_menu = new main_menuElement("skins/default/main_menu");
 $main_menu->add_menuitem("Vstoupit", "intro.php", "vstoupit.jpg");
 $main_menu->add_menuitem("Nápověda", "index.php?section=napoveda", "napoveda.jpg");

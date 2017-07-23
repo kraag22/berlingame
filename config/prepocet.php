@@ -1004,7 +1004,16 @@ function ZpracovaniStavuLigy( $id_ligy ){
 	}
 	
 	$dohrano = 'ne';
-	
+    
+    // neni zadny hrac, ukonci hru
+    $query = "SELECT count(*) FROM in_game_hrac WHERE id_liga=". $id_ligy;
+    $res1 = $db->Query( $query );
+    $hraci = $db->GetFetchRow( $res1 );
+    if ($registrace == 'ne' && $hraci[0] == 0) {
+        $dohrano = 'ano';
+        add_to_global_hlaseni($id_ligy,"liga_ukoncena_necinost");
+    }
+
 	switch( $lig['typ'] ){
 		case 'trening':
 			if ($lig['odehranych_dnu']> $CONST['LIGA_KONEC_TRENINGU']){

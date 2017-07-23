@@ -42,6 +42,10 @@ function add_to_global_hlaseni($id_ligy, $typ, $parametry = null){
 			$obsah .= "Tréninkový scénář skončil. Délka hraní je omezena na "
 			. $CONST['LIGA_KONEC_TRENINGU'] . " dnů.";
 			break;
+        case 'liga_ukoncena_necinost':
+            $nadpis .= "Konec hry";
+            $obsah .= "Scénář byl ukončen. Nikdo ho už nehrál.";
+            break;
 		case 'neuspesny_utok_na_berlin':
 			$query = "SELECT login FROM users_sys WHERE id='".$parametry['id_hrac']."'";
 			$res5 = $db->Query( $query );
