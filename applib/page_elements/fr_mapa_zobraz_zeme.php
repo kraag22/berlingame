@@ -35,8 +35,8 @@ function ZobrazZem($id_zeme, $id, $nazev, $strana, $highlight, $hracovy_zeme, $p
                                          $veleni = false, $symbol, $parametry){
 //pokud neni zem berlin
 if( $id_zeme != 45){
-	$nazev = $nazev . " [Pěchota:". $parametry['pechota'] . ", Tanky:". $parametry['tanky'] ."]";	
-}                                       	
+	$nazev = $nazev . " [Pěchota:". $parametry['pechota'] . ", Tanky:". $parametry['tanky'] ."]";
+}
 
 $zeme = "";
 $highlightString = ($highlight > 0) ? "highlighted/".$id : "prazdno";
@@ -152,8 +152,8 @@ function zobrazSipky($skin_dir, $user_id, $id_ligy)
         //$user_id = $users_class->user_id();
         //$id_ligy = isset($_SESSION["id_ligy"])?$_SESSION["id_ligy"]:-1;
 
-        $query = "SELECT id_zeme, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana 
-                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac 
+        $query = "SELECT id_zeme, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana
+                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac
                 WHERE pos_x IS NOT NULL AND zv.id_ligy = '$id_ligy' AND id_vlastnik = '$user_id';";
 //      echo($query);
         $highlight = 0;
@@ -177,65 +177,65 @@ function StavZemeNaMape( $id_zeme, $id_ligy, $id_vlastnik){
 
 //pocet tanku a pechoty
 	$query = "SELECT *
-    	FROM `in_game_vcera_zeme` 
+    	FROM `in_game_vcera_zeme`
         WHERE id_zeme='$id_zeme'
               and id_ligy='$id_ligy';";
     $res1 = $db->Query($query);
     $roww = $db->GetFetchAssoc( $res1 );
     $pole['pechota'] = $roww['pechota'];
     $pole['tanky'] = $roww['tanky'];
-    
+
 //LETISTE
     $query = "SELECT id_stavby
-    	FROM `in_game_stavby` 
+    	FROM `in_game_stavby`
         WHERE id_zeme='$id_zeme'
               and id_ligy='$id_ligy'
-              and 
+              and
               (id_stavby=1 or id_stavby=2 or id_stavby=24)
               ;";
     $res2 = $db->Query($query);
-    
+
     $pole['letiste']= "neni";
     while ($stav = $db->GetFetchRow( $res2 )){
         if ($stav[0]==1){
         	$pole['letiste']= "letiste";
-        	break;	
+        	break;
         }
    		else if($stav[0]==24){
         	$pole['letiste']= "brigada";
         }
         else if($stav[0]==2){
         	$pole['letiste']= "polni_letiste";
-        }		
+        }
     }
-    
+
 //BUNKRY
     $query = "SELECT id_stavby
-    	FROM `in_game_stavby` 
+    	FROM `in_game_stavby`
         WHERE id_zeme='$id_zeme'
               and id_ligy='$id_ligy'
-              and 
+              and
               (id_stavby=11 )
               ;";
     $res2 = $db->Query($query);
-    
+
     $pole['bunkr']= "neni";
     while ($stav = $db->GetFetchRow( $res2 )){
         if ($stav[0]==11){
-        	$pole['bunkr']= "bunkr";	
-        }	
+        	$pole['bunkr']= "bunkr";
+        }
     }
-    
+
 //VELENI
 	$query = "SELECT id_stavby
-    	FROM `in_game_stavby` 
+    	FROM `in_game_stavby`
         WHERE id_zeme='$id_zeme'
               and id_ligy='$id_ligy'
-              and 
+              and
               (id_stavby=15 )
               ;";
     $res2 = $db->Query($query);
-    
+
     $pole['veleni']= false;
     if ($stav = $db->GetFetchRow( $res2 )){
         	$pole['veleni']= true;
@@ -243,7 +243,7 @@ function StavZemeNaMape( $id_zeme, $id_ligy, $id_vlastnik){
 
 //SUBQUESTY
   /*  $query = "SELECT id_quest
-    	FROM `in_game_questy` 
+    	FROM `in_game_questy`
         WHERE id_zeme='$id_zeme'
               and id_ligy='$id_ligy'
               ;";
@@ -251,32 +251,32 @@ function StavZemeNaMape( $id_zeme, $id_ligy, $id_vlastnik){
     */
     $pole['subquest']= "neni";
    /* if ($stav = $db->GetFetchRow( $res2 )){
-        	$pole['subquest']= $stav[0];	
+        	$pole['subquest']= $stav[0];
     }*/
-    
+
 //SYMBOL
 //jen pro hraci ovladane zeme
 if (isset($id_vlastnik)){
 	$query = "SELECT symbol, strana
-    	FROM `in_game_hrac` 
+    	FROM `in_game_hrac`
         WHERE id_hrac='$id_vlastnik'
               ;";
     $res3 = $db->Query($query);
-    
+
 	if ($stav = $db->GetFetchAssoc( $res3 )){
 	    	if($stav['strana']=="sssr"){
 	    		$pole['symbol']= "s";
 	    	}
 			if($stav['strana']=="us"){
 	    		$pole['symbol']= "u";
-	    	}    	
-		 $pole['symbol'] .= $stav['symbol'] . ".png";	
+	    	}
+		 $pole['symbol'] .= $stav['symbol'] . ".png";
 	}
 }
 else{
 	$pole['symbol'] = "nenihrac";
 }
-	
+
 	return $pole;
 }
 
@@ -291,8 +291,8 @@ function ZobrazZeme( $skin_dir ){
         $text = "";
         $user_id = $users_class->user_id();
         $id_ligy = isset($_SESSION["id_ligy"])?$_SESSION["id_ligy"]:-1;
-        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana 
-                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac 
+        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana
+                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac
                 WHERE pos_x IS NOT NULL AND zv.id_ligy = '$id_ligy';";
 //      echo($query);
         $highlight = 0;
@@ -304,18 +304,18 @@ function ZobrazZeme( $skin_dir ){
                 $highlight = ($zeme["id_vlastnik"] == $user_id)?1:0;
                 $text .= ZobrazZem($zeme["id_zeme"], $zeme["id_zeme"], $zeme["nazev"], $zeme["strana"], $highlight, '',$zeme["pos_x"], $zeme["pos_y"], $zeme["center_x"], $zeme["center_y"], $zeme["center_x"] - 20, $zeme["center_y"] - 25, $zeme["veleni_x"], $zeme["veleni_y"],'',$skin_dir, $pole['letiste'], $pole['bunkr'],$pole["subquest"],$pole['veleni'],$pole['symbol'], $pole);
         }
-        
+
         //a pak neutralni/jeste neobsazene zeme
         $query = "SELECT zv.id_zeme, nazev,id_ligy, id_vlastnik, pos_x, pos_y, center_x, center_y
-                FROM `zeme_view` AS zv 
+                FROM `zeme_view` AS zv
                 WHERE pos_x IS NOT NULL AND id_vlastnik IS NULL AND zv.id_ligy = '$id_ligy';";
         $res = $db->Query($query);
         while ($zeme = $db->GetFetchAssoc( $res ))
-        {		
+        {
         		$pole = StavZemeNaMape($zeme["id_zeme"], $zeme["id_ligy"],$zeme["id_vlastnik"]);
-        		
+
                 //echo("ostatne krajiny: zeme id: " . $zeme["id_zeme"]. "; nazev: " . $zeme["nazev"] . "; strana: <br />\n" );
-                $text .= ZobrazZem($zeme["id_zeme"],$zeme["id_zeme"], $zeme["nazev"], "neutral", 0, '',$zeme["pos_x"], $zeme["pos_y"], $zeme["center_x"], $zeme["center_y"], $zeme["center_x"] - 20, $zeme["center_y"] - 25, $zeme["veleni_x"], $zeme["veleni_y"],'',$skin_dir, $pole['letiste'], $pole['bunkr'],$pole["subquest"],$pole['veleni'],$pole['symbol'], $pole);
+                $text .= ZobrazZem($zeme["id_zeme"],$zeme["id_zeme"], $zeme["nazev"], "neutral", 0, '',$zeme["pos_x"], $zeme["pos_y"], $zeme["center_x"], $zeme["center_y"], $zeme["center_x"] - 20, $zeme["center_y"] - 25, @$zeme["veleni_x"], @$zeme["veleni_y"],'',$skin_dir, $pole['letiste'], $pole['bunkr'],$pole["subquest"],$pole['veleni'],$pole['symbol'], $pole);
         }
         $text .= zobrazSipky($skin_dir, $user_id, $id_ligy);
 return $text;
@@ -325,24 +325,24 @@ return $text;
 
 function ZobrazMapu( $skin_dir, $id_ligy ){
 	global $users_class, $db, $DIR_INC;
-	
+
 	$text = "";
-	
+
 	//nacteni struktury ze souboru
 	$filename = $DIR_INC . $id_ligy . ".php";
 	$file = fopen( $filename, 'rb' );
 	$obsah = fread($file, filesize($filename));
 	fclose($file);
 	$pole_zemi = unserialize( $obsah );
-	
+
 	//prihlaseny uzivatel
 	$user_id = $users_class->user_id();
 	if( $user_id != -1){
 		unset($pole_zemi[$user_id]);
-		
+
 		//zobrazeni aktualniho stavu hracovych zemi
-        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana 
-                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac 
+        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana
+                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac
                 WHERE pos_x IS NOT NULL AND zv.id_ligy = '$id_ligy' AND id_hrac='$user_id';";
         $res = $db->Query($query);
         while ($zeme = $db->GetFetchAssoc( $res ))
@@ -355,7 +355,7 @@ function ZobrazMapu( $skin_dir, $id_ligy ){
         //zobrazeni sipek
         $text .= zobrazSipky($skin_dir, $user_id, $id_ligy);
 	}
-	
+
 	//vsichni neprihlaseni hraci
 	foreach( $pole_zemi as $hracova ){
 		foreach( $hracova as $zem ){
@@ -371,8 +371,8 @@ function GenerujMapu( $id_ligy ){
         $mapa = array();
         $skin_dir = $DIR_SKINS. "default/frame_mapa/";
 
-        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana 
-                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac 
+        $query = "SELECT id_zeme,zv.id_ligy, nazev, id_vlastnik, pos_x, pos_y, center_x, center_y, strana
+                FROM `zeme_view` AS zv JOIN `in_game_hrac` AS igh ON zv.id_vlastnik=id_hrac
                 WHERE pos_x IS NOT NULL AND zv.id_ligy = '$id_ligy';";
 
         $res = $db->Query($query);
@@ -382,21 +382,21 @@ function GenerujMapu( $id_ligy ){
                 $highlight = 0;
                 $mapa[$zeme["id_vlastnik"]][$zeme["id_zeme"]] = ZobrazZem($zeme["id_zeme"], $zeme["id_zeme"], $zeme["nazev"], $zeme["strana"], $highlight, '',$zeme["pos_x"], $zeme["pos_y"], $zeme["center_x"], $zeme["center_y"], $zeme["center_x"] - 20, $zeme["center_y"] - 25, 0, 0,'',$skin_dir, $pole['letiste'], $pole['bunkr'],$pole["subquest"],$pole['veleni'],$pole['symbol'], $pole);
         }
-        
+
         //a pak neutralni/jeste neobsazene zeme
         $query = "SELECT zv.id_zeme, nazev,id_ligy, id_vlastnik, pos_x, pos_y, center_x, center_y
-                FROM `zeme_view` AS zv 
+                FROM `zeme_view` AS zv
                 WHERE pos_x IS NOT NULL AND id_vlastnik IS NULL AND zv.id_ligy = '$id_ligy';";
         $res = $db->Query($query);
         while ($zeme = $db->GetFetchAssoc( $res ))
-        {		
+        {
         		$pole = StavZemeNaMape($zeme["id_zeme"], $zeme["id_ligy"],$zeme["id_vlastnik"]);
-        		
+
                 //echo("ostatne krajiny: zeme id: " . $zeme["id_zeme"]. "; nazev: " . $zeme["nazev"] . "; strana: <br />\n" );
                  $mapa[-1][$zeme["id_zeme"]] = ZobrazZem($zeme["id_zeme"],$zeme["id_zeme"], $zeme["nazev"], "neutral", 0, '',$zeme["pos_x"], $zeme["pos_y"], $zeme["center_x"], $zeme["center_y"], $zeme["center_x"] - 20, $zeme["center_y"] - 25, 0, 0,'',$skin_dir, $pole['letiste'], $pole['bunkr'],$pole["subquest"],$pole['veleni'],$pole['symbol'], $pole);
         }
         //$text .= zobrazSipky($skin_dir, $user_id, $id_ligy);
-	
+
 	$file = fopen( $DIR_INC . $id_ligy . '.php', 'wb' );
 	fwrite($file, serialize($mapa) );
 	fclose($file);
