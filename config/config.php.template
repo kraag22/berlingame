@@ -66,10 +66,12 @@ $MAX_TEXT_LENGTH = 500;
 $MAX_FILE_SIZE = 2000000;
 $not_allowed = array('htm','html','exe','php','asp','js','pl');
 
+$RECAPTCHA_SECRET = '';
+$RECAPTCHA_SITEKEY = '';
+
 //-------------------PREPOCET--------------------
 
 $lockfile = "${DIR_LOG}prepocet.lock";
-$secondlock = "${DIR_LOG}prepocet.second.lock";
 $PREPOCET_HESLO = 'bob12345';
 if (file_exists($lockfile)) {
     echo '<html><head>
