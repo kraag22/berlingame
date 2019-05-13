@@ -66,11 +66,11 @@ else{
 	require_once($DIR_LIBRARY . "nette/exceptions.php");
 	Debug::enable(!$DEBUG, $DIR_LOG . 'php_' . date('y-m-d') . '.log');
 	Debug::$strictMode = FALSE;
-	
+
 	// profilovani
 	if (isset($ENABLE_PROFILER) && $ENABLE_PROFILER) {
-		Debug::enableProfiler();	
-	}	
+		Debug::enableProfiler();
+	}
 }
 
 // Initialize session data
@@ -107,7 +107,7 @@ function finalize($status = 0) {
 		if ($ENABLE_PROFILER && class_exists('Debug')) {
 			Debug::$counters['Query count'] = $db->GetQueryCount();
 		}
-        
+
         if ($db->IsConnected()) {
                 $db->CloseConnection();
         }
@@ -253,16 +253,35 @@ if($prave_prihlasen){
 	$page->redir('./intro.php');
 }
 
-$GOOGLE_ANALYTICS = '<script>
-  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
 
-  ga(\'create\', \'UA-48831479-1\', \'berlingame.cz\');
-  ga(\'send\', \'pageview\');
+$GOOGLE_ANALYTICS = <<<CODE
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.kraag22.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+CODE;
 
-</script>';
+// $GOOGLE_ANALYTICS = '<script>
+//   (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+//   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//   })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
+
+//   ga(\'create\', \'UA-48831479-1\', \'berlingame.cz\');
+//   ga(\'send\', \'pageview\');
+
+// </script>';
 
 $GOOGLE_ADWORDS = '<!-- Google Code for registrace Conversion Page -->
 <script language="JavaScript" type="text/javascript">
