@@ -11,7 +11,7 @@ change DB connection settings in config/config.php
 
 install DB scripts from db/install.sql
 
-allow write to directories log, include (chmod -R 777 log, chmod -R 777 log)
+allow write to directories log, include (chmod -R 777 log, chmod -R 777 include)
 
 
 run

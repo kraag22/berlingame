@@ -38,7 +38,7 @@ $main_menu = new main_menuElement("skins/default/main_menu");
 $main_menu->add_menuitem("Vstoupit", "intro.php", "vstoupit.jpg");
 $main_menu->add_menuitem("Nápověda", "index.php?section=napoveda", "napoveda.jpg");
 $main_menu->add_menuitem("Novinky", "berlinske_novinky.php", "novinky.jpg", "_blank");
-$main_menu->add_menuitem("Forum", "forum.php", "forum2.jpg", "_blank");  
+$main_menu->add_menuitem("Forum", "forum.php", "forum2.jpg", "_blank");
 $main_menu->add_menuitem("Kontakt", "index.php?section=kontakt", "kontakt.jpg");
 $main_menu->add_menuitem("Partneři", "index.php?section=partneri", "partneri.jpg");
 
@@ -110,12 +110,15 @@ switch(array_get_index_safe('section', $_GET)) {
 		require_once("${DIR_LIB}index/index.php");
 		//dulezita oznameni
 		$page->add_element($side_menu,'sidemenu');
-		
+
 		//test prohlizece
 		$pole = Array();
 	 	$pole['fileName'] = $DIR_SCRIPTS . 'identifikace_prohlizece.js';
 		$page->add_script($pole);
 		$page->add_private_text('<body onLoad="identifikace();">', 'identifikace');
+
+    require_once("${DIR_LIB}index/prepocet_info.php");
+    $page->add_private_text($prepocet_info, 'prepocet_info');
 }
 
 $page->set_headline($TEXT["description"]);

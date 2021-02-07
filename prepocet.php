@@ -9,12 +9,12 @@ require_once("$DIR_CONFIG/text.php");
 
 // budeme logovat volani prepoctu
 $calls_file = fopen( $DIR_LOG . 'prepocet_calls.log', 'ab');
-fwrite($calls_file, "\n" . date("Y-n-j g:i:s") . "\n "); 
-fwrite($calls_file, "referer: ". @$_SERVER['HTTP_REFERER'] . "\n"); 
+fwrite($calls_file, "\n" . date("Y-n-j g:i:s") . "\n ");
+fwrite($calls_file, "referer: ". @$_SERVER['HTTP_REFERER'] . "\n");
 
 // poustet pouze s heslem
 if ((!array_key_exists('heslo',$_REQUEST)) || ($_REQUEST['heslo'] != $PREPOCET_HESLO) ) {
-	fwrite($calls_file, "wrong password: ". @$_REQUEST['heslo']."\n"); 
+	fwrite($calls_file, "wrong password: ". @$_REQUEST['heslo']."\n");
     die("nemate pravo.");
 }
 
@@ -43,7 +43,7 @@ fclose($lfile);
 
 
 // vytvoreni logoveho souboru
-$myFile = date("Y-n-j_g-i-s");
+$myFile = date("Y-n-j");
 $file = fopen( $DIR_LOG . $myFile, 'ab');
 
 if ($file === false) {
@@ -68,9 +68,9 @@ $query = "SELECT id FROM ligy WHERE stav='active'";
 $res_ligy = $db->Query( $query );
 
 while ($liga = $db->GetFetchAssoc( $res_ligy )){
-		
+
 	$id_ligy = $liga['id'];
-	
+
 	//vymazani starych hlaseni
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Vymazani starych tabulek ";
 	fwrite($file, $message);
@@ -78,7 +78,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$query = "DELETE FROM in_game_hlaseni WHERE id_ligy=$id_ligy";
 	$db->DbQuery( $query );
 	//nesmaze se podpora, ktera ma platit pres prepocet. Konkretne zatim pruzkum
-	$query = "DELETE FROM in_game_vlivy_podpora WHERE 
+	$query = "DELETE FROM in_game_vlivy_podpora WHERE
 			id_ligy=$id_ligy and (param1 is null or param1!='vcera')";
 	$db->DbQuery( $query );
 	$query = "DELETE FROM in_game_vlivy_letecke_akce WHERE id_ligy=$id_ligy";
@@ -87,7 +87,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
 	// MUSI BYT PRVNI!!!!!!!!!!!!
-		
+
 	//pridavani hernich kol
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Efekty na hrace pred prepoctem ";
@@ -96,7 +96,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 	//vyhodnoceni podpory z domova
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Vyhodnocovani podpory z domova  ";
@@ -126,7 +126,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 	//pridani sily neutralkam
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Pocitani nove sily neutralek ";
@@ -135,7 +135,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 	//cisteni/reset zemi - napr pocet oprav infrastruktury
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Reset promenych u zemi ";
@@ -144,7 +144,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-		
+
 	//efekty na hrace
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " efekty na hracich ";
@@ -153,7 +153,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 	//zpracovani stavu ligy
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " zpracovani stavu ligy ";
@@ -162,7 +162,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 	//vymazani vlivu stihaci hlidky
 	$query = "DELETE FROM in_game_vlivy_letecke_akce WHERE id_ligy=$id_ligy and id_letecke_akce=1";
 	$db->DbQuery( $query );
@@ -175,14 +175,14 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	//vyreseni vlivu pruzkum
 	$query = "DELETE FROM in_game_vlivy_podpora WHERE id_ligy=$id_ligy and id_podpora=6 and param1='vcera'";
 	$db->DbQuery( $query );
-	$query = "UPDATE in_game_vlivy_podpora SET param1='vcera' 
+	$query = "UPDATE in_game_vlivy_podpora SET param1='vcera'
 			WHERE id_ligy=$id_ligy and id_podpora=6 and param1='dnes'";
 	$db->DbQuery( $query );
-	
+
 	//vymazani utoku
 	$query = "DELETE FROM in_game_utoky WHERE id_ligy=$id_ligy";
 	$db->DbQuery( $query );
-	
+
 	//ulozeni stavu ligy po prepoctu - tabulky in_game_vcera
 	// POSLEDNI VEC CO SE V LIZE POCITA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 	$start = microtime(true);
@@ -192,7 +192,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$message = "- " . $err;
 	$message .= " (". VratRozdilMikro($start) .")\n";
 	fwrite($file, $message);
-	
+
 }
 
 //efekty na vsechny hrace pro vsechny ligy najednou
@@ -201,7 +201,7 @@ fwrite($file, $message);
 $err = EfektyNaVsechnyHrace();
 $message = "- " . $err . "\n";
 fwrite($file, $message);
-	
+
 $message = date("Y-n-j_g-i-s") . " Succesfully ends\n";
 fwrite($file, $message);
 
