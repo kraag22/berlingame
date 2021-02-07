@@ -148,7 +148,7 @@ echo "</div>\n" .
 	}
 
 if (isset($page->private_texts['prepocet_info'])){
-  echo "<p hidden>\n";
+  echo "<p>\n";
   echo "PREPOCET_STATUS:" . $page->private_texts['prepocet_info'];
   echo "</p>\n";
 }
