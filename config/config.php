@@ -76,11 +76,18 @@ if (file_exists($lockfile)) {
     <meta http-equiv="Content-language" content="cs" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Probíhá přepočet.</title>
-    </head><body style="background-color: black;">
+    </head><body style="background-color: black;color: white;">
     <div style="width:1024; margin-left: auto; margin-right: auto;">
     <img src="'.$DIRECTORY.'images/prepocet.jpg" />
-    </div>
-    </body></html>';
+    </div>';
+    date_default_timezone_set('Europe/Prague');
+    $safe = new DateTime("today");
+    $safe->add(new DateInterval('PT30M'));
+    $now = new DateTime("now");
+    if ($now < $safe) {
+        echo '<p style="text-align: center;">PREPOCET_STATUS:OK</p>';
+    }
+    echo '</body></html>';
     die;
 }
 
