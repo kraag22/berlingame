@@ -147,7 +147,7 @@ echo "</div>\n" .
 		echo $GOOGLE_ANALYTICS;
 	}
 
-if (isset($page->private_texts['prepocet_info'])){
+if (isset($page->private_texts['prepocet_info']) && $page->private_texts['prepocet_info'] != 'OK'){
   echo "<p>\n";
   echo "PREPOCET_STATUS:" . $page->private_texts['prepocet_info'];
   echo "</p>\n";
