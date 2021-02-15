@@ -1004,7 +1004,7 @@ function ZpracovaniStavuLigy( $id_ligy ){
 	}
 	
 	$dohrano = 'ne';
-    
+
     // neni zadny hrac, ukonci hru
     $query = "SELECT count(*) FROM in_game_hrac WHERE id_liga=". $id_ligy;
     $res1 = $db->Query( $query );
