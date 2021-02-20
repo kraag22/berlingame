@@ -8,7 +8,7 @@ if ($now < $safe) {
     echo '<p style="text-align: center;">PREPOCET_STATUS:FAILED</p>';
 }
 
-if (is_file($DIR_LOG . date("Y-n-j")) OR ($now < $safe)) {
+if (is_file('./log/' . date("Y-n-j")) OR ($now < $safe)) {
   $prepocet_info = "OK";
 } else {
   $prepocet_info = "FAILED";
