@@ -2,11 +2,8 @@
 date_default_timezone_set('Europe/Prague');
 
 $safe = new DateTime("today");
-$safe->add(new DateInterval('PT30M'));
+$safe->add(new DateInterval('PT1H'));
 $now = new DateTime("now");
-if ($now < $safe) {
-    echo '<p style="text-align: center;">PREPOCET_STATUS:FAILED</p>';
-}
 
 if (is_file('./log/' . date("Y-n-j")) OR ($now < $safe)) {
   $prepocet_info = "OK";
@@ -15,6 +12,8 @@ if (is_file('./log/' . date("Y-n-j")) OR ($now < $safe)) {
 }
 
 echo "<html><body>";
+echo '<p style="text-align: center;">';
 echo $prepocet_info;
+echo '</p>';
 echo "</body></html>";
 ?>
