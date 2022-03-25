@@ -270,6 +270,8 @@ $GOOGLE_ANALYTICS = <<<CODE
   })();
 </script>
 <!-- End Matomo Code -->
+<!-- Plausible -->
+<script defer data-domain="berlingame.cz" src="https://plausible.kraag22.com/js/plausible.js"></script>
 CODE;
 
 // $GOOGLE_ANALYTICS = '<script>
