@@ -13,6 +13,12 @@ install DB scripts from db/install.sql
 
 allow write to directories log, include (chmod -R 777 log, chmod -R 777 include)
 
+how to export DB
+--------------------------------------------
+`docker exec -ti berlingame-compose_db_1 /bin/bash`
+`mysqldump -u root -p -B  d4355_berlin > export.sql`
+`docker cp berlingame-compose_db_1:/export.sql .`
+
 
 run
 --------------------------------------------
