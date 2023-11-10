@@ -8,6 +8,8 @@ require_once("config/config.php");
 require_once("$DIR_CONFIG/text.php");
 
 // budeme logovat volani prepoctu
+date_default_timezone_set('Europe/Prague');
+
 $calls_file = fopen( $DIR_LOG . 'prepocet_calls.log', 'ab');
 fwrite($calls_file, "\n" . date("Y-n-j g:i:s") . "\n ");
 fwrite($calls_file, "referer: ". @$_SERVER['HTTP_REFERER'] . "\n");
@@ -16,6 +18,21 @@ fwrite($calls_file, "referer: ". @$_SERVER['HTTP_REFERER'] . "\n");
 if ((!array_key_exists('heslo',$_REQUEST)) || ($_REQUEST['heslo'] != $PREPOCET_HESLO) ) {
 	fwrite($calls_file, "wrong password: ". @$_REQUEST['heslo']."\n");
     die("nemate pravo.");
+}
+
+// pust jen o pulnoci CEST timezone
+function is_midnight_near() {
+    $now = time();
+    $midnight_today = strtotime('today midnight');
+    $midnight_tomorrow = strtotime('tomorrow midnight');
+    $midnight_diff_today = abs($midnight_today - $now);
+    $midnight_diff_tomorrow = abs($midnight_tomorrow - $now);
+
+    return $midnight_diff_tomorrow < 600 or $midnight_diff_today < 600;
+}
+
+if (!is_midnight_near()) {
+	die("nemuzete poustet prepocet jindy nez kolem pulnoci: " . date(DATE_RFC2822));
 }
 
 //funkce pro pocitani prepoctu
