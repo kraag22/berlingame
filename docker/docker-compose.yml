@@ -1,13 +1,12 @@
-version: '3.2'
-
 services:
 
     db:
-        image: mysql
+        image: mysql:8.4
+        command: --sql-mode=NO_ENGINE_SUBSTITUTION
         environment:
             MYSQL_ROOT_PASSWORD: password
         volumes:
-          - path_to_mysql_data:/var/lib/mysql
+          - /Users/kraag22/projects/berlingame/db-data:/var/lib/mysql
 
     adminer:
         image: adminer
@@ -15,8 +14,8 @@ services:
           - 8080:8080
 
     server:
-        image: kraag22/php-mysql:latest
+        build: ./php-mysql
         ports:
           - 3333:80
         volumes:
-          - path_to_src:/var/www/html/
+          - /Users/kraag22/projects/berlingame:/var/www/html/

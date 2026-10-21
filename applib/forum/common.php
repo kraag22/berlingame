@@ -21,9 +21,9 @@ $VLAKNA_TYMY_MAX	= 40000;
   
 $PAGE_SIZE = 10;
 
-require_once("${DIR_CORE}/user_utils.php");
-require_once("${DIR_CONFIG}formulare.php");
-require_once("${DIR_CONFIG}lib.php");
+require_once("{$DIR_CORE}/user_utils.php");
+require_once("{$DIR_CONFIG}formulare.php");
+require_once("{$DIR_CONFIG}lib.php");
 
 
 /**
@@ -248,20 +248,20 @@ EOT;
 		$text .= "<div class=\"post\">\n";
 		$img = get_icon_info($db, $row['id_autor'], "default"); //TODO: zadat default ikonu
 		$text .= "<div class=\"post_icon\">
-		<img src=\"${img['url']}\" ${img['attr']} alt=\"${row['login']}\" />";
+		<img src=\"{$img['url']}\" {$img['attr']} alt=\"{$row['login']}\" />";
 		//mazani prizpevku
 		if( $auth->authorised_to('forum_delete_msg')||
 			JeAutorPrizpevku($row['id']) ){
 			$url = "forum.php?page=$page&amp;section=$id_vlakna&amp;action=del&amp;del_id=".$row['id'];
 			$text .= "<a href=\"$url\" onclick=\"return confirm('Opravdu smazat?');\">";
-			$text .= "<img src=\"${DIR_SKINS}default/allpages/kos.png\" border=\"0\" />";
+			$text .= "<img src=\"{$DIR_SKINS}default/allpages/kos.png\" border=\"0\" />";
 			$text .= "</a>";
 		}
 		
 		$text .= "</div>\n";
 		$text .= "<div class=\"post_header\">";
-		$text .= "	<span class=\"post_sender\">${row['login']}</span>\n";
-		//$text .= "  <span class=\"post_aliance\">${al_nazev}</span>\n";
+		$text .= "	<span class=\"post_sender\">{$row['login']}</span>\n";
+		//$text .= "  <span class=\"post_aliance\">{$al_nazev}</span>\n";
 		$text .= " - <span class=\"post_time\">".timestamp_iso_cz($row['cas'])."</span>\n";
 		$text .= "</div>\n";
 		$obsah = RozkodujPrizpevek( $row['obsah'] );

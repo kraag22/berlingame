@@ -26,10 +26,10 @@ if (!$auth->authorised_to('module_index')) {
 
 $page->set_skin_subdir("full_page");
 
-require_once("${DIR_LIB}page_elements/login_bar.php");
-require_once("${DIR_LIB}page_elements/page_element.php");
-require_once("${DIR_LIB}page_elements/main_menu.php");
-require_once("${DIR_LIB}page_elements/side_menu.php");
+require_once("{$DIR_LIB}page_elements/login_bar.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/main_menu.php");
+require_once("{$DIR_LIB}page_elements/side_menu.php");
 
 $main_menu = new main_menuElement("skins/default/main_menu");
 $main_menu->add_menuitem("Úvod", "intro.php", "uvod.jpg");

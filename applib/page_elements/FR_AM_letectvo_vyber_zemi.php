@@ -36,7 +36,7 @@
 		//naplneni zemi
 		$i=0;
 		while ($row = $db->GetFetchRow( $res )){
-			$text .= "<input type='checkbox' name='$i' value='${row[0]}' checked /> ";
+			$text .= "<input type='checkbox' name='$i' value='{$row[0]}' checked /> ";
 			$text .= $row[1] . "<br />";
 			$i++;
 		}

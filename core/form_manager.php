@@ -76,7 +76,7 @@ class Form_manager {
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function Form_manager($db, $form_table = '', $element_table = '') {
+        function __construct($db, $form_table = '', $element_table = '') {
                 $this->db = $db;
                 if ($form_table) {
                         $this->form_table = $form_table;

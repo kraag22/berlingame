@@ -136,7 +136,7 @@ while ($liga = $db->GetFetchAssoc( $res_ligy )){
 	$start = microtime(true);
 	$message = date("Y-n-j_g-i-s") . " Liga-" . $id_ligy . " Vyhodnocovani utoku ";
 	fwrite($file, $message);
-	require_once("${DIR_CONFIG}prepocet_lib.php");
+	require_once("{$DIR_CONFIG}prepocet_lib.php");
 	$liga = new LigaPrepocet( $db, $id_ligy);
 	$err = $liga->VyhodnotUtoky();
 	$err .= $liga->Save2DB();

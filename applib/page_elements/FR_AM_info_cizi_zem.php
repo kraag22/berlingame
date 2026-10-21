@@ -30,7 +30,7 @@
   	  	
   	//vyber obrazku jednotek
   	if (isset($zeme['id_vlastnik'])){
-  		$query = "SELECT `strana` FROM in_game_hrac where id_hrac='${zeme['id_vlastnik']}'";
+        $query = "SELECT `strana` FROM in_game_hrac where id_hrac='{$zeme['id_vlastnik']}'";
   		$res2 = $db->Query($query);
 		$str = $db->GetFetchRow($res2);
 		if ($str[0]=="us"){
@@ -49,9 +49,9 @@
   	$text .= '<img src="./skins/default/frame_akcni_menu/zem/'.$strana.'velky_symbol.png" id="velky_symbol"  />';
   	
   	
-	$text .= "<div class=\"nazev_cizy_zeme\" title=\"Název země\">${zeme['nazev']}</div>\n";
-  	$text .= "<div class=\"body_vlivu_cizi_zem\" title=\"Body vlivu\">${zeme['body_vlivu']}</div>\n";
-	$text .= "<div class=\"infrastr_cizi_zem\" title=\"Infrastruktura\">${zeme['inf_now']}%</div>";
+	$text .= "<div class=\"nazev_cizy_zeme\" title=\"Název země\">{$zeme['nazev']}</div>\n";
+    $text .= "<div class=\"body_vlivu_cizi_zem\" title=\"Body vlivu\">{$zeme['body_vlivu']}</div>\n";
+	$text .= "<div class=\"infrastr_cizi_zem\" title=\"Infrastruktura\">{$zeme['inf_now']}%</div>";
   
 	$text .= "<div id=\"obrazek_hrace_cizi_zem\">\n";
 	$text .= "</div>\n";
@@ -60,12 +60,12 @@
 	
 	if (isset($zeme['id_vlastnik'])){
 		$text .= "<div id=\"info_strana\">\n";
-		$query = "SELECT `login` FROM users_sys where id='${zeme['id_vlastnik']}'";
+		$query = "SELECT `login` FROM users_sys where id='{$zeme['id_vlastnik']}'";
 			$res = $db->Query($query);
 			$login = $db->GetFetchRow($res);
 		$text .= "Pod kontrolou:";
 		$text .= '<a href="frame_akcni_menu.php?section=info_hrac&id_hrac='.$zeme['id_vlastnik'].'" >';
-		$text .= "${login[0]}";
+		$text .= "{$login[0]}";
 		$text .= '</a>';
 		//test zda zobrazit ODESLAT POSTU
 		if($users_class->is_logged()){
@@ -74,7 +74,7 @@
 			  	<img src="./skins/default/frame_akcni_menu/zem/napis_postu_male.png" id="napis_postu_male" title="Napsat zprávu" alt="Napsat zprávu"  />
 			  	</a>';
 			/*$text .= " <a href=\"posta.php?section=2
-						&amp;hrac=${login[0]}\" target=\"_blank\">Napsat</a><br />\n";*/			
+                        &amp;hrac={$login[0]}\" target=\"_blank\">Napsat</a><br />\n";*/
 		}
 		else{
 			$text .= "<br />\n";
@@ -115,8 +115,8 @@
 				Podle hlášení tvé rozvědky nejsou tyto informace 100% spolehlivé.
 			</div>";
 	
-	$text .= "<div id=\"pechota_cizi_zem\" onmouseover=\"stm(Text[1],Style[1])\" onmouseout=\"htm()\" ><div id=\"inside_text\">${zeme['pechota']}</div></div>";
-	$text .= "<div id=\"tanky_cizi_zem\" onmouseover=\"stm(Text[2],Style[1])\" onmouseout=\"htm()\" ><div id=\"inside_text\">${zeme['tanky']}</div></div>";
+	$text .= "<div id=\"pechota_cizi_zem\" onmouseover=\"stm(Text[1],Style[1])\" onmouseout=\"htm()\" ><div id=\"inside_text\">{$zeme['pechota']}</div></div>";
+	$text .= "<div id=\"tanky_cizi_zem\" onmouseover=\"stm(Text[2],Style[1])\" onmouseout=\"htm()\" ><div id=\"inside_text\">{$zeme['tanky']}</div></div>";
 				 	
 	// BONUSY SEKTORU nebo CHYBOVOU HLASKU
 	$text .= "<div id=\"bonusy_sektoru_cizi_zem\" >\n";

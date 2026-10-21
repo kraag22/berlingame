@@ -44,13 +44,13 @@ class textElement extends pageElement {
         var $text;
 
 
-/*        function textElement($text) {
+/*        function __construct($text) {
                 $this->text = $text;
                 $this->printer = new textPrinter();
 ;
         }*/
 
-        function textElement($text,$printer=NULL) {
+        function __construct($text,$printer=NULL) {
                 $this->text = $text;
                 $this->printer = $printer;
 		if ($printer == NULL) {

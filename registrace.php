@@ -12,9 +12,9 @@ require_once("$DIR_CORE/main.php");
 
 $page->set_skin_subdir( $SKIN_SUBDIR );
 
-require_once("${DIR_LIB}page_elements/login_bar.php");
-require_once("${DIR_LIB}page_elements/page_element.php");
-require_once("${DIR_LIB}page_elements/main_menu.php");
+require_once("{$DIR_LIB}page_elements/login_bar.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/main_menu.php");
 
 if ($users_class->is_logged() ){
   $page->redir('intro.php');
@@ -37,10 +37,10 @@ $page->add_element( new textElement($pocet),'registrovani_hraci');
 
 switch(request('section')) {
   case 'novacek' :
-    require("${DIR_LIB}registrace/reg_novacek.php");
+    require("{$DIR_LIB}registrace/reg_novacek.php");
     break;
   case 'veteran':
-    require("${DIR_LIB}registrace/reg_veteran.php");
+    require("{$DIR_LIB}registrace/reg_veteran.php");
     break;
   default:
     $text= '<div class="reg_prvni">

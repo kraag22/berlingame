@@ -38,7 +38,7 @@ Class TarDir {
          *
          * @return true-false podle úspěch neúspěch
          */
-    function TarDir($file_name, $dir=".", $working_dir=".", $save_file_name=null,
+    function __construct($file_name, $dir=".", $working_dir=".", $save_file_name=null,
                                                          $download_immediate=true, $gz_compress=true) {
 
         if (!$save_file_name){
@@ -46,7 +46,7 @@ Class TarDir {
                         $pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
                 for($i=0;$i<$length;$i++)
                 {
-                        $save_file_name .= $pattern{rand(0,35)};
+                        $save_file_name .= $pattern[rand(0,35)];
                 }
                 $save_file_name .= ".tar";
                 }

@@ -32,9 +32,9 @@
   
 	
 	//hodnoty surovin
-	$text .= "<span class=\"nazev_zeme\" title=\"Název země\">${zeme['nazev']}</span>\n";
-  $text .= "<span class=\"body_vlivu\" title=\"Body vlivu\">${zeme['body_vlivu']}</span>\n";
-	$text .= "<div class=\"infrastr\" title=\"Infrastruktura\">${zeme['inf_now']}%</div>";
+	$text .= "<span class=\"nazev_zeme\" title=\"Název země\">{$zeme['nazev']}</span>\n";
+  $text .= "<span class=\"body_vlivu\" title=\"Body vlivu\">{$zeme['body_vlivu']}</span>\n";
+	$text .= "<div class=\"infrastr\" title=\"Infrastruktura\">{$zeme['inf_now']}%</div>";
 
 	//zda je postavena stavba zenijni utvar
 	if (MaHracStavbuVZemi(21,$bezpecny_id,$_SESSION['id_ligy'])){

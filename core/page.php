@@ -61,7 +61,8 @@ class Page {
     var $css;
 
     /** Pole cest k souborům se skripty (JavaScript a VBscript) */
-    var $scripsts;
+    var $scripts;
+        var $pub_javascripts;
 
     /** Pole cest k souborům, které budou přímo vloženy
          *      do hlavičky stránky
@@ -141,7 +142,7 @@ class Page {
          *
          * Pouze nastaví defaultní hodnoty.
          */
-        function Page() {
+        function __construct() {
                 $this->title = "No title given";
                 $this->robots = "index,follow";
                 $this->css = array();

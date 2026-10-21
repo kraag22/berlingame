@@ -12,7 +12,7 @@ define('BoB', 1);
 
 // vlozi soubor s konfiguracnim nastavenim unikatnim pro tento server
 require_once("config/config.php");
-require_once("${DIR_CONFIG}text.php");
+require_once("{$DIR_CONFIG}text.php");
 
 // include basic functions and classes
 require_once("$DIR_CORE/main.php");
@@ -28,7 +28,7 @@ if (!$auth->authorised_to('module_news')) {
 $page->set_skin_subdir($SKIN_SUBDIR);
 
 require_once("{$DIR_LIB}page_elements/login_bar.php");
-require_once("${DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
 require_once("{$DIR_LIB}page_elements/main_menu.php");
 
 $main_menu = new main_menuElement("skins/default/main_menu");

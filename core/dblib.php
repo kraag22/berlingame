@@ -126,17 +126,14 @@ class DbLibMySQL extends DbLib {
          *
          */
         function OpenConnection() {
-                parent::OpenConnection();
-                // připojení k serveru
-                $this->mSocket = @mysql_connect($this->mHost . ':' . $this->mPort,
-                                                                                $this->mUser, $this->mPassword)
-                        or ($this->HandleError($this->GetError()));
-                // otevření databáze
-                @mysql_select_db($this->mDatabase, $this->mSocket)
-                        or $this->HandleError($this->GetError());
-
-                // nastavení znakové sady na UTF-8
-                $this->Query('SET NAMES utf8');
+                // Keep the existing HandleError path instead of mysqli's default exceptions.
+                mysqli_report(MYSQLI_REPORT_OFF);
+                $this->mSocket = @mysqli_connect($this->mHost, $this->mUser,
+                        $this->mPassword, $this->mDatabase, (int) $this->mPort);
+                if (!$this->mSocket) {
+                        $this->HandleError(mysqli_connect_error());
+                }
+                mysqli_set_charset($this->mSocket, 'utf8');
 
                 return $this->mSocket;
         }
@@ -154,7 +151,7 @@ class DbLibMySQL extends DbLib {
         function SelectDatabase($database = '')
         {
                 parent::SelectDatabase();
-                @mysql_select_db($database, $this->mSocket) or
+                @mysqli_select_db($this->mSocket, $database) or
                         $this->HandleError($this->GetError());
                 $this->mDatabase = $database;
         }
@@ -174,7 +171,7 @@ class DbLibMySQL extends DbLib {
         		$this->query_count++;
         		
                 parent::DbQuery();
-                ($this->mResult = @mysql_unbuffered_query($query, $this->mSocket)) or
+                ($this->mResult = @mysqli_query($this->mSocket, $query, MYSQLI_USE_RESULT)) or
                         $this->HandleError($this->GetError(), $query);
                 return $this->mResult;
 
@@ -196,7 +193,7 @@ class DbLibMySQL extends DbLib {
         		$this->query_count++;
         		
                 parent::Query();
-                ($this->mResult = mysql_query($query, $this->mSocket )) or
+                ($this->mResult = mysqli_query($this->mSocket, $query)) or
                         $this->HandleError($this->GetError(), $query);
                 return $this->mResult;
         }
@@ -223,10 +220,12 @@ class DbLibMySQL extends DbLib {
                 ($result) ? $temp_result = $result : $temp_result = $this->mResult;
 
                 // pokud není result platný, je skript ukončen
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                         $this->HandleError('Not MySQL resource while getting results');
 
-                return @mysql_result($temp_result,$row,$coll);
+                if (!mysqli_data_seek($temp_result, $row)) return false;
+                $record = mysqli_fetch_array($temp_result);
+                return array_key_exists($coll, $record) ? $record[$coll] : false;
         }
 
 
@@ -249,17 +248,17 @@ class DbLibMySQL extends DbLib {
                 ($result) ? $temp_result = $result : $temp_result = $this->mResult;
 
                 // pokud není result platný, je skript ukončen
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                         $this->HandleError('Not MySQL resource while getting results');
 
-                return @mysql_num_rows($temp_result);
+                return @mysqli_num_rows($temp_result);
         }
 
 
         function GetLastId()
         {
                 parent::GetLastId();
-                return mysql_insert_id();
+                return mysqli_insert_id($this->mSocket);
         }
         /**
          * Vraci jednu hodnotu u dortazu typu sum, count...
@@ -286,9 +285,9 @@ class DbLibMySQL extends DbLib {
                 parent::GetNextRecord();
                 ($result) ? $temp_result = $result : $temp_result = $this->mResult;
 
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                   $this->HandleError('Not MySQL resource while getting results');
-                $this->mRow = @mysql_fetch_assoc($temp_result);
+                $this->mRow = @mysqli_fetch_assoc($temp_result);
                 return $this->mRow != FALSE;
         }
 
@@ -306,22 +305,22 @@ class DbLibMySQL extends DbLib {
                 if ($result) $temp_result = $result;
                 else                      $temp_result = $this->mResult;
 
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                   $this->HandleError('Not MySQL resource while getting results');
-                @mysql_free_result($temp_result);
+                @mysqli_free_result($temp_result);
         }
 
 
         function SqlCorrection($string)
         {
                 parent::SqlCorrection($string);
-                return @mysql_real_escape_string($string);
+                return @mysqli_real_escape_string($this->mSocket, (string) $string);
         }
 
 
         function GetError()
         {
-                $error = @mysql_error();
+                $error = @mysqli_error($this->mSocket);
                 parent::GetError();
                 return $error;
         }
@@ -329,7 +328,7 @@ class DbLibMySQL extends DbLib {
         function HandleError($error_text, $query = "")
         {
                 if (parent::IsConnected())
-                        $this->DbQuery('UNLOCK TABLES');
+                        mysqli_query($this->mSocket, 'UNLOCK TABLES');
 
                 global $error, $LANGUAGE;
 
@@ -337,7 +336,7 @@ class DbLibMySQL extends DbLib {
 					$query = "<br />\nChyba nastala v dotazu: " . $query;
 				}
 				
-				$uri = $_SERVER['REQUEST_URI'];
+				$uri = $_SERVER['REQUEST_URI'] ?? 'CLI';
 				
 				throw new Exception('Chyba databáze, popis chyby: ' . $error_text 
 					. $query . "<br \>\nK chybě došlo na URI: " . $uri);
@@ -346,9 +345,10 @@ class DbLibMySQL extends DbLib {
 
         function CloseConnection()
         {
-                $this->DbQuery('UNLOCK TABLES');
+                mysqli_query($this->mSocket, 'UNLOCK TABLES');
                 parent::CloseConnection();
-                @mysql_close($this->mSocket) or $this->HandleError('There is no valid MySQL-Link resource');
+                @mysqli_close($this->mSocket) or $this->HandleError('There is no valid MySQL-Link resource');
+                $this->mSocket = null;
         }
 
         function GetFetchRow($result = 0)
@@ -356,9 +356,9 @@ class DbLibMySQL extends DbLib {
                 parent::GetResult();
                 ($result) ? $temp_result = $result : $temp_result = $this->mResult;
 
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                   $this->HandleError('Not MySQL resource while getting results');
-                return @mysql_fetch_row($temp_result);
+                return @mysqli_fetch_row($temp_result);
         }
 
         function GetAffectedRows($socket = 0)
@@ -366,9 +366,9 @@ class DbLibMySQL extends DbLib {
                 parent::GetResult();
                 ($socket) ? $temp_socket = $socket : $temp_socket = $this->mSocket;
 
-                if (!is_resource($temp_socket))
+                if (!($temp_socket instanceof mysqli))
                   $this->HandleError('Not MySQL link while getting results');
-                return @mysql_affected_rows($temp_socket);
+                return @mysqli_affected_rows($temp_socket);
         }
 
         function GetFetchAssoc($result = 0)
@@ -376,9 +376,9 @@ class DbLibMySQL extends DbLib {
                 parent::GetResult();
                 ($result) ? $temp_result = $result : $temp_result = $this->mResult;
 
-                if (!is_resource($temp_result))
+                if (!($temp_result instanceof mysqli_result))
                   $this->HandleError('Not MySQL resource while getting results');
-                return @mysql_fetch_assoc($temp_result);
+                return @mysqli_fetch_assoc($temp_result);
         }
 
         /**
@@ -394,13 +394,13 @@ class DbLibMySQL extends DbLib {
                 parent::GetTableDef($table, $crlf);
                 $schema_create = "";
                 $schema_create .= "DROP TABLE IF EXISTS $table;$crlf";
-                $result = mysql_query("SHOW CREATE TABLE $table");
+                $result = mysqli_query($this->mSocket, "SHOW CREATE TABLE $table");
                 if (!$result) {
                         return false;
                 }
-                $data = mysql_fetch_array($result);
+                $data = mysqli_fetch_array($result);
                 $schema_create .= $data[1] . ";$crlf$crlf";
-                mysql_free_result($result);
+                mysqli_free_result($result);
                 return $schema_create;
         }
         
@@ -433,17 +433,17 @@ class DbLibMySQL extends DbLib {
 
                 $schema_insert = "";
                 $local_query = "SELECT * FROM $table";
-                $result = mysql_query($local_query);
+                $result = mysqli_query($this->mSocket, $local_query);
                 if ($result != FALSE) {
-                        $fields_cnt = mysql_num_fields($result);
-                        $rows_cnt   = mysql_num_rows($result);
+                        $fields_cnt = mysqli_num_fields($result);
+                        $rows_cnt   = mysqli_num_rows($result);
                         /* Checks whether the field is an integer or not */
                         for ($j = 0; $j < $fields_cnt; $j++) {
-                                $field_set[$j] = mysql_field_name($result, $j);
-                                $type = mysql_field_type($result, $j);
-                                if ($type == 'tinyint' || $type == 'smallint' ||
-                                        $type == 'mediumint' || $type == 'int' ||
-                                        $type == 'bigint' /* || $type == 'timestamp' */) {
+                                $field_set[$j] = mysqli_fetch_field_direct($result, $j)->name;
+                                $type = mysqli_fetch_field_direct($result, $j)->type;
+                                if ($type == MYSQLI_TYPE_TINY || $type == MYSQLI_TYPE_SHORT ||
+                                        $type == MYSQLI_TYPE_INT24 || $type == MYSQLI_TYPE_LONG ||
+                                        $type == MYSQLI_TYPE_LONGLONG /* || $type == 'timestamp' */) {
                                         $field_num[$j] = TRUE;
                                 } else {
                                 $field_num[$j] = FALSE;
@@ -457,7 +457,7 @@ class DbLibMySQL extends DbLib {
                         $replace = array('\0', '\n', '\r', '\Z');
                         $current_row = 0;
 
-                        while ($row = mysql_fetch_row($result)) {
+                        while ($row = mysqli_fetch_row($result)) {
                                 $schema_insert .= "INSERT INTO $table VALUES (";
                                 $current_row++;
                                 for ($j = 0; $j < $fields_cnt; $j++) {
@@ -497,7 +497,7 @@ class DbLibMySQL extends DbLib {
                         }
                 }
 
-                mysql_free_result($result);
+                mysqli_free_result($result);
 
                 if ($file_handle) {
                         if (!$schema_insert) {
@@ -559,7 +559,7 @@ class DbLibMySQL extends DbLib {
                         $pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
                         for($i = 0; $i < $length; $i++)
                         {
-                                $save_file_name .= $pattern{rand(0,35)};
+                                $save_file_name .= $pattern[rand(0,35)];
                         }
                         $save_file_name .= ".bcp";
                 }
@@ -603,7 +603,7 @@ class DbLibMySQL extends DbLib {
 
                 $dump_buffer = "#MySQL DUMP of databaze: $dbname  (from " .
                         date("Y-m-d H:i:s") . ")$crlf";
-                $dump_buffer .= "Charset: ". mysql_client_encoding($this->mSocket);
+                $dump_buffer .= "Charset: ". mysqli_character_set_name($this->mSocket);
 
 
                 if ($dump_to_file) {
@@ -623,7 +623,7 @@ class DbLibMySQL extends DbLib {
 
                         if ($with_structure) {
                                 /* Zapíšeme strukturu tabulky */
-                                $dump_buffer .= GetTableDef($table, "$crlf");
+                                $dump_buffer .= $this->GetTableDef($table, "$crlf");
                         }
 
                         /* Zapíšeme informaci o tom, že budou následovat INSERTy */
@@ -650,7 +650,7 @@ class DbLibMySQL extends DbLib {
                         }
                 }
 
-                mysql_close();
+                $this->CloseConnection();
                 if ($dump_to_file){
                         if (!fclose($file_handle)) {
                                 return false;
@@ -662,11 +662,11 @@ class DbLibMySQL extends DbLib {
 
                                 $mime_type = "";
 
-                                if (ereg('Opera(/| )([0-9].[0-9]{1,2})',
+                                if (preg_match('~Opera(/| )([0-9].[0-9]{1,2})~',
                                                 $_SERVER['HTTP_USER_AGENT'])) {
                                         $UserBrowser = "Opera";
                                 }
-                                elseif (ereg('MSIE ([0-9].[0-9]{1,2})',
+                                elseif (preg_match('~MSIE ([0-9].[0-9]{1,2})~',
                                                 $_SERVER['HTTP_USER_AGENT'])) {
                                         $UserBrowser = "IE";
                                 }

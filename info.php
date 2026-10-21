@@ -12,7 +12,7 @@ define('BoB', 1);
 
 // vlozi soubor s konfiguracnim nastavenim unikatnim pro tento server
 require_once("config/config.php");
-require_once("${DIR_CONFIG}text.php");
+require_once("{$DIR_CONFIG}text.php");
 require_once($DIR_CONFIG . "konstanty.php");
 
 // include basic functions and classes
@@ -20,7 +20,7 @@ require_once("$DIR_CORE/main.php");
 
 $page->set_skin_subdir($SKIN_SUBDIR);
 
-require_once("${DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
 
 //ziskani ID ligy a vlozeni do sessions
 	if(isset($_GET['id_scenare']) && is_numeric($_GET['id_scenare'])){
@@ -37,7 +37,7 @@ switch(request('section')) {
         case 'scenar' :
                 //FALLTROUGHT      
         default:
-               require_once("${DIR_LIB}info/scenar.php");
+               require_once("{$DIR_LIB}info/scenar.php");
                 break;
 }
 

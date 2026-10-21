@@ -4,7 +4,7 @@
 
 class listOfLigy extends listElement {
 	
-	function listOfLigy($db, $page) {
+	function __construct($db, $page) {
 		global $LANGUAGE, $auth;
 		
 		$columns = array (
@@ -74,7 +74,7 @@ class listOfLigy extends listElement {
 			);
 		}
 		
-		parent::listElement($db, $page, "Seznam scénářů",
+		parent::__construct($db, $page, "Seznam scénářů",
 			"ligy",
 			$columns, 'admin_ligy_list');
 			
@@ -135,18 +135,18 @@ function AktivujLigu( $id_ligy ){
 		(`id_zeme`,`id_ligy`,`id_vlastnik`,`infrastruktura_now`,
 		`pechota`,`tanky`,`letadla`,`sila_neutralka`) values 
 		('$i','$id_ligy',NULL,
-		${CONST['NEUTRALKA_INFRASTRUKTURA']},
-		${CONST['NEUTRALKA_PECHOTA']},
-		${CONST['NEUTRALKA_TANKY']},0,${CONST['NEUTRALKA_SILA_1_DEN']})";
+		{$CONST['NEUTRALKA_INFRASTRUKTURA']},
+		{$CONST['NEUTRALKA_PECHOTA']},
+		{$CONST['NEUTRALKA_TANKY']},0,{$CONST['NEUTRALKA_SILA_1_DEN']})";
 		$db->DbQuery( $query );
 		
 		$query = "insert  into `in_game_vcera_zeme`
 		(`id_zeme`,`id_ligy`,`id_vlastnik`,`infrastruktura_now`,
 		`pechota`,`tanky`,`letadla`,`sila_neutralka`) values 
 		('$i','$id_ligy',NULL,
-		${CONST['NEUTRALKA_INFRASTRUKTURA']},
-		${CONST['NEUTRALKA_PECHOTA']},
-		${CONST['NEUTRALKA_TANKY']},0,${CONST['NEUTRALKA_SILA_1_DEN']})";
+		{$CONST['NEUTRALKA_INFRASTRUKTURA']},
+		{$CONST['NEUTRALKA_PECHOTA']},
+		{$CONST['NEUTRALKA_TANKY']},0,{$CONST['NEUTRALKA_SILA_1_DEN']})";
 		$db->DbQuery( $query );
 	}
 	

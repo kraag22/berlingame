@@ -54,7 +54,7 @@ $ERROR_LEVEL_FATAL = $ERROR_TYPES["Fatal error"];
  * nastavení konstant $DEBUG, $ERRORS_LOG a $ERRORS_PRINT chyby
  * loguje a vypisuje na obrazovku.
  */
-class Error {
+class AppError {
         /** Pole pro uchovávání chyb */
         var $errors;
 
@@ -101,7 +101,7 @@ class Error {
          *
          * @param $log_file soubor (v adresáři $DIR_LOG) pro logování chyb
          */
-        function Error($log_file = "error.log") {
+        function __construct($log_file = "error.log") {
                 global $LANGUAGE, $ERROR_LEVEL_NOTICE, $ERROR_LEVEL_WARNING,
                         $ERROR_LEVEL_ERROR,     $ERROR_LEVEL_FATAL;
 

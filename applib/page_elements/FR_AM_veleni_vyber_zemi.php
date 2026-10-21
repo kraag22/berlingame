@@ -37,7 +37,7 @@
 			$i=0;
 			$text .= "<div class=\"veleni_zeme\">\n";
 			while ($row = $db->GetFetchRow( $res )){
-				$text .= "<input type='checkbox' name='$i' value='${row[0]}' checked /> ";
+				$text .= "<input type='checkbox' name='$i' value='{$row[0]}' checked /> ";
 				$text .= $row[1] . "<br />";
 				$i++;
 			}

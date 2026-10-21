@@ -1,7 +1,7 @@
 <?php
 class listOfNovinky extends listElement {
 	
-	function listOfNovinky($db, $page) {
+	function __construct($db, $page) {
 		global $LANGUAGE, $auth;
 		
 		$columns = array (
@@ -40,7 +40,7 @@ class listOfNovinky extends listElement {
 			);
 		}
 		
-		parent::listElement($db, $page, "Seznam novinek",
+		parent::__construct($db, $page, "Seznam novinek",
 			"novinky",
 			$columns, 'admin_univerzity_list');
 			

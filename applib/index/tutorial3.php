@@ -13,21 +13,21 @@ else{
 
 switch( $page_get ) {
 	case 'tut1':
-        require($DIR_LIB . "tutorial/${tut_num}tut1.php");
+        require($DIR_LIB . "tutorial/{$tut_num}tut1.php");
 		break;
 	case 'tut2':
-        require($DIR_LIB . "tutorial/${tut_num}tut2.php");
+        require($DIR_LIB . "tutorial/{$tut_num}tut2.php");
 		break;
 	case 'tut3':
-        require($DIR_LIB . "tutorial/${tut_num}tut3.php");
+        require($DIR_LIB . "tutorial/{$tut_num}tut3.php");
 		break;
 	case 'tut4':
-        require($DIR_LIB . "tutorial/${tut_num}tut4.php");
+        require($DIR_LIB . "tutorial/{$tut_num}tut4.php");
 		break;
 	case 'tut5':
-        require($DIR_LIB . "tutorial/${tut_num}tut5.php");
+        require($DIR_LIB . "tutorial/{$tut_num}tut5.php");
 		break;
 	default:
-		require_once("${DIR_LIB}tutorial/${tut_num}tut1.php");
+		require_once("{$DIR_LIB}tutorial/{$tut_num}tut1.php");
 }
 ?>

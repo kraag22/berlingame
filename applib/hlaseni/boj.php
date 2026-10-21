@@ -39,7 +39,7 @@
 	    	$detail .="<br /><span class=efekt>" . $row[7] ."</span>";
 	    	
 	    	//ztraty
-	    	$ztraty = "Pěchota:${row[5]} Tanky:${row[6]}";
+            $ztraty = "Pěchota:{$row[5]} Tanky:{$row[6]}";
 	    	
 	    	$text .= "<tr onclick=\"kliknuti('".$ob."','".$detail."','".$ztraty."')\">";
 	    	$text .= "<td id=\"td1\">". $row[0] ."</td>";

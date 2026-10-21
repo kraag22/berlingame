@@ -1,4 +1,3 @@
-FROM php:5.6.31-apache
-MAINTAINER Martin Bartusek "martinbartusek@gmail.com"
+FROM php:8.4-apache
 
-RUN docker-php-ext-install mysql mysqli
+RUN docker-php-ext-install mysqli

@@ -22,7 +22,7 @@ class LigaPrepocet{
 	var $presuny = array();
 	var $stavby = array();
 	
-	function LigaPrepocet( $_db, $_id_ligy ){
+	function __construct( $_db, $_id_ligy ){
 		$this->id_ligy = $_id_ligy;
 		$this->db = $_db;
 		
@@ -813,9 +813,9 @@ function RestartLigy( $id_ligy){
 		(`id_zeme`,`id_ligy`,`id_vlastnik`,`infrastruktura_now`,
 		`pechota`,`tanky`,`letadla`,`sila_neutralka`) values 
 		($i,$id_ligy,NULL,
-		${CONST['NEUTRALKA_INFRASTRUKTURA']},
-		${CONST['NEUTRALKA_PECHOTA']},
-		${CONST['NEUTRALKA_TANKY']},0, ${CONST['NEUTRALKA_SILA_1_DEN']})";
+		{$CONST['NEUTRALKA_INFRASTRUKTURA']},
+		{$CONST['NEUTRALKA_PECHOTA']},
+		{$CONST['NEUTRALKA_TANKY']},0, {$CONST['NEUTRALKA_SILA_1_DEN']})";
 		$db->DbQuery( $query );
 		
 		//in game vcera zeme se neinicializuje. provede se automaticky ve funkci
@@ -869,11 +869,11 @@ function ZapisHraciVyhru( $id_hrac, $id_ligy, $odehrano, $typ = NULL){
 				$vit_strana = 'ano';
 			}
 			$query = "INSERT INTO users_vyhry (id_user, id_ligy, datum, odehranych_dnu, umisteni, strana, team_vyhra) VALUES
-			($hrac, $id_ligy, '$datum', $odehrano, $poradi, '${data['strana']}', '$vit_strana');";
+			($hrac, $id_ligy, '$datum', $odehrano, $poradi, '{$data['strana']}', '$vit_strana');";
 		}
 		else{
 			$query = "INSERT INTO users_vyhry (id_user, id_ligy, datum, odehranych_dnu, umisteni, strana) VALUES
-			($hrac, $id_ligy, '$datum', $odehrano, $poradi, '${data['strana']}');";
+			($hrac, $id_ligy, '$datum', $odehrano, $poradi, '{$data['strana']}');";
 		}
 		
 		$db->DbQuery( $query );

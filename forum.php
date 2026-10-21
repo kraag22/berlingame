@@ -24,9 +24,9 @@ if (!$auth->authorised_to('module_index')) {
 
 $page->set_skin_subdir($SKIN_SUBDIR);
 
-require_once("${DIR_LIB}page_elements/page_element.php");
-require_once("${DIR_LIB}page_elements/side_menu.php");
-require_once("${DIR_LIB}forum/common.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/side_menu.php");
+require_once("{$DIR_LIB}forum/common.php");
 require_once("{$DIR_CONFIG}formulare.php");
 
 //OBSAH FORA

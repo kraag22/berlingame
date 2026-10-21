@@ -32,7 +32,7 @@
  	$text .= "<div id=\"ih_napis_postu\">\n";
  	//test zda zobrazit ODESLAT POSTU
 	if($users_class->is_logged()){
-		$text .= "<a href=\"posta.php?section=2&amp;hrac=${hrac['login']}\" 
+        $text .= "<a href=\"posta.php?section=2&amp;hrac={$hrac['login']}\"
 	 	target=\"_blank\" title=\"Napsat zprávu\" >";
 		$text .= '<img src="./skins/default/frame_akcni_menu/info_hrac/napis_postu.png" border=\"0\" />';
 	 	$text .= '</a>';

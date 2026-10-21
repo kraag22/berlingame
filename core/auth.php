@@ -51,7 +51,7 @@ class Authorisation {
          * @param $groupstable jméno tabulky s přiřazením uživatelů do skupin
          *                      (nepovinný parametr)
          */
-        function Authorisation(&$db, $user, $authtable = '', $groupstable = '') {
+        function __construct(&$db, $user, $authtable = '', $groupstable = '') {
                 $this->db = $db;
                 $this->user = $user;
                 if ($authtable)
