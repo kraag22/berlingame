@@ -27,6 +27,6 @@ switch( $page_get ) {
         require($DIR_LIB . "tutorial/tut5.php");
 		break;
 	default:
-		require_once("${DIR_LIB}tutorial/tut0.php");
+		require_once("{$DIR_LIB}tutorial/tut0.php");
 }
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-require_once("${DIR_LIB}/page_elements/page_element.php");
+require_once("{$DIR_LIB}/page_elements/page_element.php");
 
 class side_menuElement extends tableElement {
 
 	var $form_skin_dir;
 
-        function side_menuElement($form_skin_dir){
+        function __construct($form_skin_dir){
 
                 $this->printer = new tablePrinter();
 		$this->form_skin_dir = $form_skin_dir;

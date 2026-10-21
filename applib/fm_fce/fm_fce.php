@@ -50,7 +50,7 @@ function date_cz_iso_with_check(&$datum, $element) {
         return false;
     }
 
-    if (!ereg('^[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}$', $datum)) {
+    if (!preg_match('~^[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{4}$~', $datum)) {
         return $element['title'] . ": " . $LANGUAGE['fm_fce_date_wrong_cz_format'];
     }
 
@@ -78,9 +78,9 @@ function date_cz_iso_with_check(&$datum, $element) {
  * copyright Jakub Vrána, http://php.vrana.cz
  */
 function check_email_vrana($email) {
-    $atom = '[-a-z0-9!#$%&\'*+/=?^_`{|}~]'; // znaky tvořící uživatelské jméno
+    $atom = '[-a-z0-9!#$%&\'*+/=?^_`{|}\~]'; // znaky tvořící uživatelské jméno
     $domain = '[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])'; // jedna komponenta domény
-    return eregi("^$atom+(\\.$atom+)*@($domain?\\.)+$domain\$", $email);
+    return preg_match("~^$atom+(\\.$atom+)*@($domain?\\.)+$domain\$~i", $email);
 }
 
 

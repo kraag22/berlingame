@@ -30,9 +30,9 @@ require_once($DIR_CONFIG . "mapa.php");
  *
  */
 function ZobrazZem($id_zeme, $id, $nazev, $strana, $highlight, $hracovy_zeme, $podklad_x, $podklad_y,
-                                        $symbol_x, $symbol_y, $subquest_x, $subquest_y, $veleni_x = 0,
-                                        $veleni_y = 0, $sipky, $skin_dir, $letiste, $bunkr, $subquest = null,
-                                         $veleni = false, $symbol, $parametry){
+                                        $symbol_x, $symbol_y, $subquest_x, $subquest_y, $veleni_x,
+                                        $veleni_y, $sipky, $skin_dir, $letiste, $bunkr, $subquest,
+                                         $veleni, $symbol, $parametry){
 //pokud neni zem berlin
 if( $id_zeme != 45){
 	$nazev = $nazev . " [Pěchota:". $parametry['pechota'] . ", Tanky:". $parametry['tanky'] ."]";

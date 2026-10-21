@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	require_once($DIR_CONFIG . "text.php");
 	require_once($DIR_CONFIG . "konstanty.php");
 	

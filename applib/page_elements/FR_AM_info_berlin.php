@@ -56,7 +56,7 @@
 	//TEST ZDA HRAC VYHRAL
 	$vyhra = "ne";
 	for ($i = 1; $i<= $p['pocet_podminek']; $i++){
-		if($p["${i}o"] == "ano"){
+		if($p["{$i}o"] == "ano"){
 			$vyhra = "ano";
 		}
 		else{
@@ -87,8 +87,8 @@
 	// generovani podminek
 	for ($i = 1; $i<= $p['pocet_podminek']; $i++){
 		$text .= '<div id="ber_podminka'.$i.'" onmouseover="stm(Text['.($i+5).'],Style[1])" onmouseout="htm()" >';
-		$text .= '<img src="'.$dir_berlin.$p["${i}o"] .'.png"  class="ber_zaskrtavatko" />';
-			$text .= '<div class="ber_podminka_text" >' .$p["${i}t"];		
+		$text .= '<img src="'.$dir_berlin.$p["{$i}o"] .'.png"  class="ber_zaskrtavatko" />';
+            $text .= '<div class="ber_podminka_text" >' .$p["{$i}t"];
 			$text .= '</div>';
 		$text .= '</div>';
 	}	

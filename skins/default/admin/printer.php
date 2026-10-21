@@ -1,7 +1,7 @@
 <?php
 class Printer {
 	
-	function Printer(){
+	function __construct(){
 		
 	}
 	/** set pageproperties specific to this skin */

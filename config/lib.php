@@ -321,7 +321,7 @@ function MaHracPrestiz( $id_ligy, $id_user = null ){
 	return false;
 }
 
-function MaHracKontrolu( $id_ligy, $id_user = null, $bv_pro_zavreni ){
+function MaHracKontrolu( $id_ligy, $id_user, $bv_pro_zavreni ){
 	global  $users_class, $db, $CONST;
 	
 	if (!isset($id_user)){
@@ -371,7 +371,7 @@ function SplnujeHracPodminkyProVyhru( $id_ligy, $id_user, $prepocet = false ){
 	//TEST ZDA HRAC VYHRAL
 	$vyhra = "ne";
 	for ($i = 1; $i<= $p['pocet_podminek']; $i++){
-		if($p["${i}o"] == "ano"){
+		if($p["{$i}o"] == "ano"){
 			$vyhra = "ano";
 		}
 		else{

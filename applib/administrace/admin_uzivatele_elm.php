@@ -3,7 +3,7 @@
 
 class listOfUzivatele extends listElement {
 	
-	function listOfUzivatele($db, $page) {
+	function __construct($db, $page) {
 		global $LANGUAGE, $auth;
 		
 		$columns = array (
@@ -72,7 +72,7 @@ class listOfUzivatele extends listElement {
 			) as x
 		";
 		
-		parent::listElement($db, $page, "Seznam hráčů",
+		parent::__construct($db, $page, "Seznam hráčů",
 			$sql,
 			$columns, 'admin_ligy_list');
 			

@@ -1,6 +1,6 @@
 <?php
 
-require_once ("${DIR_LIB}page_elements/page_element.php");
+require_once ("{$DIR_LIB}page_elements/page_element.php");
 
 class login_barPrinter extends pageElementPrinter {
 
@@ -17,11 +17,12 @@ class login_barPrinter extends pageElementPrinter {
 
 
 class login_barElement extends pageElement {
+        var $page;
         var $text;
         var $err_text;
         var $filled;
 
-        function login_barElement($db,&$page, $form_skin_dir, $printer=null){
+        function __construct($db,&$page, $form_skin_dir, $printer=null){
                 global $users_class;
                 global $fm_class,$page;
                 global $DIRECTORY;

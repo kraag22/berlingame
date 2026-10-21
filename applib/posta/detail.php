@@ -5,7 +5,7 @@
  * @brief Pošta uživatele - dorucene zprávy
  *
  */
-require_once("${DIR_CONFIG}formulare.php");
+require_once("{$DIR_CONFIG}formulare.php");
 
 
 
@@ -48,20 +48,20 @@ function posta_detail($db, $id_zpravy, $section = NULL) {
 	
 		$text .= "<div class=\"post_detail\">\n";
 		$img = get_icon_info($db, $row['id_prijemce'], "default"); //TODO: zadat default ikonu
-		$text .= "<div class=\"post_icon\"><img src=\"${img['url']}\" ${img['attr']} alt=\"${row['login']}\" /></div>\n";
+		$text .= "<div class=\"post_icon\"><img src=\"{$img['url']}\" {$img['attr']} alt=\"{$row['login']}\" /></div>\n";
 		$text .= "<div class=\"post_header\">\n";
-		$text .= "  <span class=\"post_sender\">${row['login']}</span>\n";
-		//$text .= "  <span class=\"post_aliance\">${al_nazev}</span>\n";
+		$text .= "  <span class=\"post_sender\">{$row['login']}</span>\n";
+		//$text .= "  <span class=\"post_aliance\">{$al_nazev}</span>\n";
 		$text .= "  <span class=\"post_time\">".timestamp_iso_cz($row['cas'])."</span>\n";
 		//tlacitko odpovedet
 		if ( $section == $POSTA_DORUCENA){
 			$text .= "  <span class=\"post_respond\">
-				<a href=\"posta.php?section=$POSTA_NAPSAT&amp;hrac=${row['login']}&amp;re=".urlencode($row['predmet'])."\">
+				<a href=\"posta.php?section=$POSTA_NAPSAT&amp;hrac={$row['login']}&amp;re=".urlencode($row['predmet'])."\">
 				Odpovědět</a></span>\n";	
 		}
 		
 		$text .= "</div>\n";
-		$text .= "Předmět: <span class=\"post_predmet\">${row['predmet']}</span>\n";
+		$text .= "Předmět: <span class=\"post_predmet\">{$row['predmet']}</span>\n";
 		$obsah = RozkodujPrizpevek( $row['obsah'] );
 		$text .= "<div class=\"post_body\">$obsah\n</div>\n";
 		

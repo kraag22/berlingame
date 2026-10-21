@@ -158,7 +158,7 @@ final class Debug
 		);
 
 		$error = error_get_last();
-		if (self::$enabled && isset($types[$error['type']])) {
+		if (self::$enabled && $error !== NULL && isset($types[$error['type']])) {
 			if (!headers_sent()) { // for PHP < 5.2.4
 				header('HTTP/1.1 500 Internal Server Error');
 			}
@@ -515,7 +515,7 @@ final class Debug
 	 * @return void
 	 * @ignore internal
 	 */
-	public static function _exceptionHandler(Exception $exception)
+	public static function _exceptionHandler(Throwable $exception)
 	{
 		if (!headers_sent()) {
 			header('HTTP/1.1 500 Internal Server Error');
@@ -539,7 +539,7 @@ final class Debug
 	 * @throws FatalErrorException
 	 * @ignore internal
 	 */
-	public static function _errorHandler($severity, $message, $file, $line, $context)
+	public static function _errorHandler($severity, $message, $file, $line, $context = array())
 	{
 		if ($severity === E_RECOVERABLE_ERROR || $severity === E_USER_ERROR) {
 			throw new FatalErrorException($message, 0, $severity, $file, $line, $context);
@@ -557,7 +557,6 @@ final class Debug
 			E_USER_WARNING => 'Warning',
 			E_NOTICE => 'Notice',
 			E_USER_NOTICE => 'Notice',
-			E_STRICT => 'Strict standards',
 			E_DEPRECATED => 'Deprecated',
 			E_USER_DEPRECATED => 'Deprecated',
 		);
@@ -587,7 +586,7 @@ final class Debug
 	 * @param  bool  is writing to standard output buffer allowed?
 	 * @return void
 	 */
-	public static function processException(Exception $exception, $outputAllowed = FALSE)
+	public static function processException(Throwable $exception, $outputAllowed = FALSE)
 	{
 		if (!self::$enabled) {
 			return;
@@ -650,7 +649,7 @@ final class Debug
 	 * @param  Exception
 	 * @return void
 	 */
-	public static function toStringException(Exception $exception)
+	public static function toStringException(Throwable $exception)
 	{
 		if (self::$enabled) {
 			self::_exceptionHandler($exception);
@@ -667,7 +666,7 @@ final class Debug
 	 * @return void
 	 * @ignore internal
 	 */
-	public static function _paintBlueScreen(Exception $exception)
+	public static function _paintBlueScreen(Throwable $exception)
 	{
 		$internals = array();
 		foreach (array('Object', 'ObjectMixin') as $class) {

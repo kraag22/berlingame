@@ -164,11 +164,9 @@ function array_get_index_safe($index, $array) {
   * @return řetězec bezpečný pro vložení do SQL dotazu
   */
 function sqlsafe($str, $strip = true) {
-        if (get_magic_quotes_gpc() && $strip) {
-                $str = stripslashes($str);
-        }
 
-        return mysql_real_escape_string($str);
+        global $db;
+        return $db->SqlCorrection($str);
 }
 
 /**
@@ -182,11 +180,8 @@ function sqlsafe($str, $strip = true) {
  * @return řetězec bezpečný pro vložení do kódu HTML stránky
  */
 function htmlsafe($str, $strip = true) {
-        if (get_magic_quotes_gpc() && $strip) {
-                $str = stripslashes($str);
-        }
 
-        return htmlspecialchars($str, ENT_QUOTES);
+        return htmlspecialchars((string) $str, ENT_QUOTES);
 }
 
 /**
@@ -196,9 +191,6 @@ function htmlsafe($str, $strip = true) {
  * @return řetězec zbavený efektu magoc quotes, pokud byly zapnuté
  */
 function my_stripslashes($str) {
-        if (get_magic_quotes_gpc()) {
-                return stripslashes($str);
-        }
         return $str;
 }
 

@@ -28,11 +28,11 @@ if (!$auth->authorised_to('module_index')) {
 
 $page->set_skin_subdir($SKIN_SUBDIR);
 
-require_once("${DIR_LIB}page_elements/login_bar.php");
-require_once("${DIR_LIB}page_elements/page_element.php");
-require_once("${DIR_LIB}page_elements/main_menu.php");
-require_once("${DIR_LIB}page_elements/side_menu.php");
-require_once("${DIR_LIB}page_elements/I_novinky.php");
+require_once("{$DIR_LIB}page_elements/login_bar.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
+require_once("{$DIR_LIB}page_elements/main_menu.php");
+require_once("{$DIR_LIB}page_elements/side_menu.php");
+require_once("{$DIR_LIB}page_elements/I_novinky.php");
 
 $main_menu = new main_menuElement("skins/default/main_menu");
 $main_menu->add_menuitem("Vstoupit", "intro.php", "vstoupit.jpg");
@@ -107,7 +107,7 @@ switch(array_get_index_safe('section', $_GET)) {
 		break;
 	default:
 		//obsah titulky
-		require_once("${DIR_LIB}index/index.php");
+		require_once("{$DIR_LIB}index/index.php");
 		//dulezita oznameni
 		$page->add_element($side_menu,'sidemenu');
 
@@ -117,7 +117,7 @@ switch(array_get_index_safe('section', $_GET)) {
 		$page->add_script($pole);
 		$page->add_private_text('<body onLoad="identifikace();">', 'identifikace');
 
-    require_once("${DIR_LIB}index/prepocet_info.php");
+    require_once("{$DIR_LIB}index/prepocet_info.php");
     $page->add_private_text($prepocet_info, 'prepocet_info');
 }
 

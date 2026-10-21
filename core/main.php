@@ -145,7 +145,7 @@ require_once($DIR_LANG . "errors.php");
 require_once("$DIR_CORE/error.php");
 
 /** Objekt sloužící ke zpracování chybových hlášení aplikace. */
-$error = new Error();
+$error = new AppError();
 
 // ------------------ Inicializace zakladnich knihoven  ------------------------
 

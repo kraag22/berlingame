@@ -14,14 +14,14 @@
 		// hrajici hrac
 		if ($hrac = $db->GetFetchAssoc( $res )){		
 			
-			$text .= "${hrac['login']} : Máte rozehraný scénář ";
+			$text .= "{$hrac['login']} : Máte rozehraný scénář ";
 			
-			$res2 = $db->Query("SELECT * FROM `ligy` where id='${hrac['id_liga']}'");
+			$res2 = $db->Query("SELECT * FROM `ligy` where id='{$hrac['id_liga']}'");
        		$liga = $db->GetFetchAssoc( $res2 );
        	
        		$text .= $liga['nazev'] . ".<br />";
        		
-       		$text .= "<a href=\"hlaseni.php?id_scenare=${hrac['id_liga']}\">Vstoupit do hry</a>";
+            $text .= "<a href=\"hlaseni.php?id_scenare={$hrac['id_liga']}\">Vstoupit do hry</a>";
        		$rozehrana_liga = $hrac['id_liga'];
 			}
 		// nehrajici prihlaseny hrac
@@ -32,8 +32,8 @@
 			// hrajici hrac
 			$hrac = $db->GetFetchAssoc( $res3 );
 			
-			$text .= "${hrac['login']} : Nemáte rozehraný žádný scénář.<br />";
-			$text .= "<a href=\"${DIRECTORY}intro.php?section=prihlaseni\">Přihlašte se do scénáře</a>";
+			$text .= "{$hrac['login']} : Nemáte rozehraný žádný scénář.<br />";
+			$text .= "<a href=\"{$DIRECTORY}intro.php?section=prihlaseni\">Přihlašte se do scénáře</a>";
 			$zobrazit = false;
 		}
 	}
@@ -70,12 +70,12 @@
 			$text .= "<tr><td><img src=\"".$DIRECTORY."skins/default/intro/".$liga['typ'].".png\" width=\"170\" height=\"135\" alt=\"obrazek\"/></td>";
 	    	$text .= "<td id=\"druhy\">";
 	    		if( $rozehrana_liga == $liga['id'] ){
-	    			$text .= "<a href=\"hlaseni.php?id_scenare=${liga['id']}\">";
+                    $text .= "<a href=\"hlaseni.php?id_scenare={$liga['id']}\">";
 	    		}
 	    		else{
 	    			$text .= '<a href="info.php?id_scenare='.$liga['id'].'">';
 	    		}
-	    		$text .= "<b>${liga['nazev']}</a> (";
+                $text .= "<b>{$liga['nazev']}</a> (";
 	    			
 	    	switch( $liga['typ'] ){
 	    		case "elite_dm":
@@ -99,7 +99,7 @@
 	    	
 	    	$text .= "<br /> 
 	    		<span style=\"font-size: 12pt;\">
-	    		Hraje se ${liga['odehranych_dnu']} dnů.<br /> ";
+                Hraje se {$liga['odehranych_dnu']} dnů.<br /> ";
 	    	// vypis stavu scenare
 	    	if($liga['dohrano']=='ano'){
 	    		$text .= "<strong>Scénář se dnes dohrál.</strong>";
@@ -110,7 +110,7 @@
 		    	if ($liga['registrace']=='ano'){
 		    		$text .= "Scénář začíná, lze se přihlásit do hry (denně do 22:00).<br />";
 		    		
-		    		$query = "SELECT count(*) FROM in_game_hrac WHERE id_liga='${liga['id']}'";
+                    $query = "SELECT count(*) FROM in_game_hrac WHERE id_liga='{$liga['id']}'";
 		    		$res2 = $db->Query( $query );
 		    		$ah = $db->GetFetchRow( $res2 );
 		    		
@@ -135,15 +135,15 @@
 	    	$text .= "<tr><td>";
 	    	
 	    		if( $rozehrana_liga == $liga['id'] ){
-	    			$text .= "<a href=\"hlaseni.php?id_scenare=${liga['id']}\">";
+                    $text .= "<a href=\"hlaseni.php?id_scenare={$liga['id']}\">";
 	    		}
 	    		else{
 	    			$text .= '<a href="info.php?id_scenare='.$liga['id'].'">';
 	    		}
-	    		$text .= "<b>${liga['nazev']} (trénink)</b>
+                $text .= "<b>{$liga['nazev']} (trénink)</b>
 	    		</a> </td><td>
 	    		<span style=\"font-size: 12pt;\">
-	    		Hraje se ${liga['odehranych_dnu']} dnů. ";
+                Hraje se {$liga['odehranych_dnu']} dnů. ";
 	    	// vypis stavu scenare
 	    	if($liga['dohrano']=='ano'){
 	    		$text .= "<strong>Scénář se dnes dohrál.</strong>";
@@ -152,7 +152,7 @@
 	    		//lze se do nej prihlasit
 		    	if ($liga['registrace']=='ano'){
 			    		
-		    		$query = "SELECT count(*) FROM in_game_hrac WHERE id_liga='${liga['id']}'";
+                    $query = "SELECT count(*) FROM in_game_hrac WHERE id_liga='{$liga['id']}'";
 		    		$res2 = $db->Query( $query );
 		    		$ah = $db->GetFetchRow( $res2 );
 		    		

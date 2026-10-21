@@ -29,7 +29,7 @@ if ($DEBUG) {
 // DB settings
 
 /** adresa DB serveru, například "localhost" */
-$DB_SERVER = 'localhost';
+$DB_SERVER = 'db';
 /** port DB serveru, obvykle 3306  */
 $DB_PORT = 3306;
 /** jmeno databaze */
@@ -37,7 +37,7 @@ $DB_DATABASE = 'berlin';
 /** uživatel DB */
 $DB_USER = 'root';
 /** heslo do DB */
-$DB_PASS = '';
+$DB_PASS = 'password';
 
 //------------------- Directories --------------------------
 
@@ -68,8 +68,8 @@ $not_allowed = array('htm','html','exe','php','asp','js','pl');
 
 //-------------------PREPOCET--------------------
 
-$lockfile = "${DIR_LOG}prepocet.lock";
-$secondlock = "${DIR_LOG}prepocet.second.lock";
+$lockfile = "{$DIR_LOG}prepocet.lock";
+$secondlock = "{$DIR_LOG}prepocet.second.lock";
 $PREPOCET_HESLO = 'heslo';
 if (file_exists($lockfile)) {
     echo '<html><head>

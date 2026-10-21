@@ -153,7 +153,7 @@
 	$text .= '<form method="post" action="frame_akcni_menu.php?section=utok">';
 	$text .= "<span id=\"seznam_utoku\">";
 	while ($row = $db->GetFetchAssoc( $res )){
-		$text .= "<input type='checkbox' name='$i' value='${row['id']}' /> ";
+		$text .= "<input type='checkbox' name='$i' value='{$row['id']}' /> ";
 		if($row['typ']=="presun"){
 			$text .= $row['nazev']."(přesun: ".$row['pechota']."pěch. a ".$row['tanky']." tan.)<br />";
 		}

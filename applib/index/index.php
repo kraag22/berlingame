@@ -48,10 +48,10 @@ function VratSeznam( $query ){
 	while( $row = $db->GetFetchAssoc( $res ) ){
 		if( $i == 1){
 			$text .= "<li style=\"color:#EE2F37;\" >".$i;
-			$text .= ".<a href=\"profil.php?id_hrac=${row['id']}\" target=\"_blank\"> <span class=\"hrac_prvni\">${row['login']}</span> </a> </li>";
+			$text .= ".<a href=\"profil.php?id_hrac={$row['id']}\" target=\"_blank\"> <span class=\"hrac_prvni\">{$row['login']}</span> </a> </li>";
 		}
 		else{
-			$text .= "<li >$i. <a href=\"profil.php?id_hrac=${row['id']}\" target=\"_blank\"> ${row['login']} </a> </li>";
+			$text .= "<li >$i. <a href=\"profil.php?id_hrac={$row['id']}\" target=\"_blank\"> {$row['login']} </a> </li>";
 		}
 		$i++;
 	}

@@ -16,7 +16,7 @@
  *
  */
 
-require_once("${DIR_CORE}/user_utils.php");
+require_once("{$DIR_CORE}/user_utils.php");
 
 /**
  * @brief Třída pro práci s objektem uživatele
@@ -73,7 +73,7 @@ class Users {
          * přihlášen. Pokud ano načte údaje o něm.
          *
          */
-        function Users($db, $db_tablename = "", $db_col_id = "",
+        function __construct($db, $db_tablename = "", $db_col_id = "",
                                    $db_col_login = "", $db_col_pwd = "") {
                 $this->db = $db;
                 if ($db_tablename) {
@@ -326,7 +326,7 @@ class Users {
                                         "Uživatel \"" . $users_class->user_login() . "\" se pokusil
                                          vytvořit nového uživatele, k čemuž nemá právo.",
                                         $LANGUAGE['ADMIN_NO_RIGHTS']);
-                        break;
+                        return false;
                 }
 
                 $this->db->DbQuery("LOCK TABLES `" . $this->db_tablename . "` WRITE");

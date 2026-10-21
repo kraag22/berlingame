@@ -9,14 +9,14 @@ function SeznamVydelkuZemi( $id_hrac ){
 	$text = "<table id=\"stat_table\"> \n";
 
 	$text .= "<tr class=\"first\"><td class=\"prvni\">";
-	//$text .= "<img alt=\"Suroviny\" title=\"Suroviny\" src=\"${DIR_SKINS}default/frame_akcni_menu/stat_text.png\" width=\"80\" height=\"18\" />";
+	//$text .= "<img alt=\"Suroviny\" title=\"Suroviny\" src=\"{$DIR_SKINS}default/frame_akcni_menu/stat_text.png\" width=\"80\" height=\"18\" />";
 	$text .= "Sektory";
 	$text .= "</td><td class=\"druhy\">";
-	$text .= "<img alt=\"Suroviny\" title=\"Suroviny\" src=\"${DIR_SKINS}default/frame_akcni_menu/statistika/stat_suroviny.png\" width=\"26\" height=\"22\" />";
+	$text .= "<img alt=\"Suroviny\" title=\"Suroviny\" src=\"{$DIR_SKINS}default/frame_akcni_menu/statistika/stat_suroviny.png\" width=\"26\" height=\"22\" />";
 	$text .= "</td><td class=\"treti\">";
-	$text .= "<img alt=\"Palivo\" title=\"Palivo\" src=\"${DIR_SKINS}default/frame_akcni_menu/statistika/stat_palivo.png\" width=\"25\" height=\"21\" />";
+	$text .= "<img alt=\"Palivo\" title=\"Palivo\" src=\"{$DIR_SKINS}default/frame_akcni_menu/statistika/stat_palivo.png\" width=\"25\" height=\"21\" />";
 	$text .= "</td><td class=\"ctvrty\">";
-	$text .= "<img alt=\"Body vlivu\" title=\"Body vlivu\" src=\"${DIR_SKINS}default/frame_akcni_menu/statistika/stat_body_vlivu.png\" width=\"33\" height=\"20\" />";
+	$text .= "<img alt=\"Body vlivu\" title=\"Body vlivu\" src=\"{$DIR_SKINS}default/frame_akcni_menu/statistika/stat_body_vlivu.png\" width=\"33\" height=\"20\" />";
 	$text .= "</td></tr>";
 	$suma_suroviny = 0;
 	$suma_palivo = 0;
@@ -26,8 +26,8 @@ function SeznamVydelkuZemi( $id_hrac ){
 	
 	while ($row = $db->GetFetchAssoc( $res )){
 		$text .= "<tr><td class=\"prvni\">
-		<a href=\"frame_akcni_menu.php?section=info&id=${row['id_zeme']}\" class=\"sektor\">
-		${row['nazev']}</a>
+		<a href=\"frame_akcni_menu.php?section=info&id={$row['id_zeme']}\" class=\"sektor\">
+		{$row['nazev']}</a>
 		</td><td class=\"druhy\"><span class=\"all_suroviny\">";
 		$sur = SurovinyZaKolo( $row['id_zeme'] );
 		$suma_suroviny += $sur;

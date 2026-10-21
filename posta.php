@@ -11,8 +11,8 @@ define("BoB", 1);
 
 // vlozi soubor s konfiguracnim nastavenim unikatnim pro tento server
 require_once("config/config.php");
-require_once("${DIR_CONFIG}text.php");
-require_once("${DIR_CONFIG}lib.php");
+require_once("{$DIR_CONFIG}text.php");
+require_once("{$DIR_CONFIG}lib.php");
 
 // include basic functions and classes
 require_once("$DIR_CORE/main.php");
@@ -27,39 +27,39 @@ if (!$auth->authorised_to('module_posta')) {
 
 $page->set_skin_subdir($SKIN_SUBDIR);
 
-require_once("${DIR_LIB}posta/common.php");
-require_once("${DIR_LIB}page_elements/login_bar.php");
-require_once("${DIR_LIB}page_elements/page_element.php");
-//require_once("${DIR_LIB}page_elements/main_menu.php");
-//require_once("${DIR_LIB}page_elements/side_menu.php");
+require_once("{$DIR_LIB}posta/common.php");
+require_once("{$DIR_LIB}page_elements/login_bar.php");
+require_once("{$DIR_LIB}page_elements/page_element.php");
+//require_once("{$DIR_LIB}page_elements/main_menu.php");
+//require_once("{$DIR_LIB}page_elements/side_menu.php");
 
 switch (request('section')) {
 
 	case $POSTA_ODESLANI:
-		require_once("${DIR_LIB}posta/odeslat.php");
+		require_once("{$DIR_LIB}posta/odeslat.php");
 		$page->add_element(posta_odeslat($db), 'obsah');
 		$styl = $POSTA_NAPSAT;
 		
 		break;	
 	case $POSTA_NAPSAT:
-		require_once("${DIR_LIB}posta/napsat.php");
+		require_once("{$DIR_LIB}posta/napsat.php");
 		$page->add_element(posta_napsat(), 'obsah');
 		$styl = $POSTA_NAPSAT;
 		break;	
 
 	case $POSTA_OBSAH:
-		require_once("${DIR_LIB}posta/obsah.php");
+		require_once("{$DIR_LIB}posta/obsah.php");
 		$page->add_element(posta_obsah(), 'obsah');
 		break;	
 	case $POSTA_ODESLANA;
 		//zobrazi konkretni zpravu
 			if(is_numeric(request("detail"))){
-				require_once("${DIR_LIB}posta/detail.php");
+				require_once("{$DIR_LIB}posta/detail.php");
 				$page->add_element(posta_detail($db,request("detail")), 'obsah');
 			}
 			//zobrazi seznam zprav
 			else{
-				require_once("${DIR_LIB}posta/odeslane.php");
+				require_once("{$DIR_LIB}posta/odeslane.php");
 				$page->add_element(posta_odeslane($db), 'obsah');
 			}
 		$styl = $POSTA_ODESLANA;
@@ -70,12 +70,12 @@ switch (request('section')) {
 	default:
 		//zobrazi konkretni zpravu
 		if(is_numeric(request("detail"))){
-			require_once("${DIR_LIB}posta/detail.php");
+			require_once("{$DIR_LIB}posta/detail.php");
 			$page->add_element(posta_detail($db,request("detail"), $POSTA_DORUCENA), 'obsah');
 		}
 		//zobrazi seznam zprav
 		else{
-			require_once("${DIR_LIB}posta/dorucene.php");
+			require_once("{$DIR_LIB}posta/dorucene.php");
 			$page->add_element(posta_dorucene($db), 'obsah');
 		}
 		

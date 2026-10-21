@@ -44,7 +44,7 @@ function get_icon_info($db, $id, $default) {
 	$exts = array('jpg','png');
 
 	foreach ($exts as $ext) {
-		$file = "${DIRECTORY}$ICON_PATH/$id.jpg";
+		$file = "{$DIRECTORY}$ICON_PATH/$id.jpg";
 		if (file_exists($file)) {
 			$img = getimagesize($file);
 			$img['url'] = "$APP_ROOT/$ICON_PATH/$id.jpg";
@@ -53,9 +53,9 @@ function get_icon_info($db, $id, $default) {
 		}
 	}
 
-	$file = "${DIRECTORY}skins/default/icons/${default}.png";
+	$file = "{$DIRECTORY}skins/default/icons/{$default}.png";
 	$img = getimagesize($file);
-	$img['url'] = "$APP_ROOT/skins/default/icons/${default}.png";
+	$img['url'] = "$APP_ROOT/skins/default/icons/{$default}.png";
 	$img['attr'] = $img[3];
 	return $img;
 }

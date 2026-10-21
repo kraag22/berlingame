@@ -200,7 +200,7 @@ function VratVlivyNaZemi( $id_zeme, $id_ligy ){
 			igv.id_zeme='$id_zeme' AND igv.id_ligy='$id_ligy'";
 	$res = $db->Query( $query );
 	while ($vliv = $db->GetFetchAssoc( $res )){
-		$vlivy .= "<img src=\"${dir}dalekohled.png\" alt\"obrazek_podpory\"
+		$vlivy .= "<img src=\"{$dir}dalekohled.png\" alt\"obrazek_podpory\"
 		title=\"".$vliv['nazev']."\"/>";
 	}	
 	
@@ -209,7 +209,7 @@ function VratVlivyNaZemi( $id_zeme, $id_ligy ){
 			igv.id_zeme='$id_zeme' AND igv.id_ligy='$id_ligy'";
 	$res = $db->Query( $query );
 	while ($vliv = $db->GetFetchAssoc( $res )){
-		$vlivy .= "<img src=\"${dir}dalekohled.png\" alt\"obrazek_let_akce\"
+		$vlivy .= "<img src=\"{$dir}dalekohled.png\" alt\"obrazek_let_akce\"
 		title=\"".$vliv['nazev']."\"/>";
 	}	
 	

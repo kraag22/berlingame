@@ -1,5 +1,5 @@
 <?php
-	require_once("${DIR_LANG}napoveda.php");
+	require_once("{$DIR_LANG}napoveda.php");
 	require_once($DIR_LIB . "hlaseni/common.php");
 
 	global $HELP;

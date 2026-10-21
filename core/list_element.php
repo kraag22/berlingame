@@ -34,7 +34,7 @@ class filter {
         /** zde je uložena aktuální hodnota filtru */
         var $current_value;
 
-        function filter($filter_name, $filter_values, $current_value = 0) {
+        function __construct($filter_name, $filter_values, $current_value = 0) {
                 $this->name = $filter_name;
                 $this->values = $filter_values;
                 $this->current_value = $current_value;
@@ -71,7 +71,7 @@ class listbox_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function listbox_filter($filter_name, $filter_values, $current_value = 0) {
+        function __construct($filter_name, $filter_values, $current_value = 0) {
 
                 if (($current_value == 0) && isset($_POST["le_filter_$filter_name"])) {
                         $current_value = $_POST["le_filter_$filter_name"];
@@ -79,7 +79,7 @@ class listbox_filter extends filter{
                 if (isset($_POST["le_filter_".$filter_name."_button"])) {
                         $current_value = $_POST["le_filter_".$filter_name."_select"];
                 }
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
         }
 
         /**
@@ -149,7 +149,7 @@ class search_filter extends filter{
          * @param $current_value Nepovinný parametr, obsahuje hodnotu na kterou chceme filtr nastavit.
          *
          */
-        function search_filter($filter_name, $filter_values, $current_value = '--Vyhledávání--') {
+        function __construct($filter_name, $filter_values, $current_value = '--Vyhledávání--') {
 
                 if (($current_value == '--Vyhledávání--') && !isset($_POST["le_filter_".$filter_name."_button"]) && isset($_POST["le_filter_$filter_name"]) && $_POST["le_filter_$filter_name"] != '') {
                         $current_value = $_POST["le_filter_$filter_name"];
@@ -157,7 +157,7 @@ class search_filter extends filter{
                 if (isset($_POST["le_filter_".$filter_name."_button"]) && ($_POST["le_filter_".$filter_name."_input"] != '')) {
                         $current_value = $_POST["le_filter_".$filter_name."_input"];
                 }
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
         }
 
         /**
@@ -232,7 +232,7 @@ class all_values_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function all_values_filter($filter_name, $filter_values, $current_value = array('col' => '', 'val' => '--Vyberte hodnotu--')) {
+        function __construct($filter_name, $filter_values, $current_value = array('col' => '', 'val' => '--Vyberte hodnotu--')) {
 
                 /**
                  * Pokud je pole #current_value nastaveno na implicitní hodnoty, pak zkontrolujeme zda máme byly v poli
@@ -249,7 +249,7 @@ class all_values_filter extends filter{
                         $current_value['col'] = $values[0];
                         $current_value['val'] = $values[1];
                 }
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
         }
 
         /**
@@ -371,7 +371,7 @@ class all_values_row_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function all_values_row_filter($filter_name, $filter_values, $current_value = array()) {
+        function __construct($filter_name, $filter_values, $current_value = array()) {
 
                 /**
                  * Pokud je pole #current_value nastaveno na implicitní hodnoty, pak zkontrolujeme zda máme byly v poli
@@ -393,7 +393,7 @@ class all_values_row_filter extends filter{
                                 $current_value[$index]['val'] = $value;
                         }
                 }
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
         }
 
         /**
@@ -507,7 +507,7 @@ class column_values_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function column_values_filter($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
+        function __construct($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
 
                 if (isset($_POST["le_filter_".$filter_name."_filters_count"])) {
                         $this->filters_count = $_POST["le_filter_".$filter_name."_filters_count"];
@@ -578,7 +578,7 @@ class column_values_filter extends filter{
                         $current_value['col'] = '';
                 }
 
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
 
         }
 
@@ -814,7 +814,7 @@ class column_values_compare_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function column_values_compare_filter($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
+        function __construct($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
 
                 /** inicializace pole operatoru */
                 $this->compare_opers = array ('' => '--Vyberte--',
@@ -891,7 +891,7 @@ class column_values_compare_filter extends filter{
                         $current_value['col'] = $_POST["le_filter_".$filter_name."_col_select"];
                 }
 
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
 
         }
 
@@ -1097,7 +1097,7 @@ class compare_filter extends filter{
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function compare_filter($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
+        function __construct($filter_name, $filter_values, $current_value = array('col' => '', 'comp' => '', 'val' => '')) {
 
                 /** inicializace pole operatoru */
                 $this->compare_opers = array ('' => '--Vyberte--',
@@ -1164,7 +1164,7 @@ class compare_filter extends filter{
 
                         $this->filters_count++;
                 }
-                parent::filter($filter_name, $filter_values, $current_value);
+                parent::__construct($filter_name, $filter_values, $current_value);
         }
 
         /**
@@ -1301,7 +1301,7 @@ class action {
         var $title;
         var $action;
 
-        function action($action_name, $action_title, $action) {
+        function __construct($action_name, $action_title, $action) {
                 $this->name = $action_name;
                 $this->title = $action_title;
                 $this->action = $action;
@@ -1330,8 +1330,8 @@ class simple_action extends action {
          * Nastaví vstupní parametry do odpovídajících proměnných třídy.
          *
          */
-        function class_action($action_name, $action_title, $action) {
-                parent::action($action_name, $action_title, $action);
+        function __construct($action_name, $action_title, $action) {
+                parent::__construct($action_name, $action_title, $action);
         }
 
         /**
@@ -1350,11 +1350,11 @@ class class_action extends action {
         var $user_id;
         var $db;
 
-        function class_action($action_name, $action_title, $action, $db, $user_id) {
+        function __construct($action_name, $action_title, $action, $db, $user_id) {
                 $this->user_id = $user_id;
                 $this->db = $db;
 
-                parent::action($action_name, $action_title, $action);
+                parent::__construct($action_name, $action_title, $action);
 
                 $this->get_data_from_db();
         }
@@ -1468,13 +1468,13 @@ class basicListElementPrinter extends pageElementPrinter {
  */
 class listElement extends pageElement {
         /** data, která se zobrazí na aktuální stránce */
-        var $data;
+        var $data = array();
         /** indikuje zda byla data načtena z databáze */
         var $filled;
         /** ukazatel na třídu pro obsluhu databáze */
         var $db;
         /** data načtená z databáze */
-        var $db_data;
+        var $db_data = array();
         /** titulek seznamu */
         var $title;
         /** databázová tabulka ze které se data načítají */
@@ -1538,7 +1538,7 @@ class listElement extends pageElement {
          * Inicializuje seznam.
          *
          */
-        function listElement($db, &$page, $title, $db_table, $columns, $name = '',
+        function __construct($db, &$page, $title, $db_table, $columns, $name = '',
                                                         $param_array = array('section', 'page', 'subpage'), $url = '', $printer = null) {
                 global $LANGUAGE;
 
@@ -1552,7 +1552,7 @@ class listElement extends pageElement {
                 $this->url_params_to_send = $param_array;
                 $this->no_data_found = $LANGUAGE['prazdny_seznam'];
 
-                $this->register($page);
+                $this->register($page, null);
 
                 $this->filters = array();
                 $this->actions = array();

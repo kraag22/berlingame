@@ -850,7 +850,7 @@ function EfektyNaHrace( $id_ligy ){
 		
 		$query = "UPDATE `users_hrac` SET 
 					`odehranych_dnu` = `odehranych_dnu` + 1
-					 WHERE id_user=${hrac['id']};";
+					 WHERE id_user={$hrac['id']};";
 		$db->DbQuery( $query );
 	
 	}
@@ -883,7 +883,7 @@ function EfektyNaHrace( $id_ligy ){
 		$maxLS = MaximalniLeteckaSila($hrac['id_hrac']);
 		//pokud je LS vetsi nez maximum, snizim
 		if ($hrac['letecka_sila'] > $maxLS){
-			$query = "UPDATE `in_game_hrac` SET	`letecka_sila` = $maxLS WHERE id_hrac=${hrac['id_hrac']};";
+			$query = "UPDATE `in_game_hrac` SET	`letecka_sila` = $maxLS WHERE id_hrac={$hrac['id_hrac']};";
 			$db->DbQuery( $query );
 			
 			add_to_global_hlaseni($id_ligy, 'snizena_LS', $hrac);
@@ -891,7 +891,7 @@ function EfektyNaHrace( $id_ligy ){
 		
 		//polovina BV zmizi
 		$query = "UPDATE `in_game_hrac` SET `body_vlivu` = ROUND(`body_vlivu` / 2)		 
-					 WHERE id_hrac=${hrac['id_hrac']};";
+					 WHERE id_hrac={$hrac['id_hrac']};";
 		$db->DbQuery( $query );
 		
 	}

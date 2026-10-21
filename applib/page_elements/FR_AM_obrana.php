@@ -136,7 +136,7 @@
 			$sila += $CONST["STAVBY_VOJENSKA_POLICIE_BONUS"];
 		}
 	
-	$text .= "<span id=\"sila_kontrarozvedky\">${policie[0]} Policejních stanovišť =
+	$text .= "<span id=\"sila_kontrarozvedky\">{$policie[0]} Policejních stanovišť =
 			$sila% síla </span></div>";
   				
 			

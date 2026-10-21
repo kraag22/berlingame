@@ -5,7 +5,7 @@
  * @brief Pošta uživatele - dorucene zprávy
  *
  */
-require_once("${DIR_CONFIG}formulare.php");
+require_once("{$DIR_CONFIG}formulare.php");
 
 
 
@@ -47,16 +47,16 @@ function posta_odeslane($db) {
 		
 		$text .= "<div class=\"post\">\n";
 		//$img = get_icon_info($db, $row['id_prijemce'], "default"); //TODO: zadat default ikonu
-		//$text .= "<div class=\"post_icon\"><img src=\"${img['url']}\" ${img['attr']} alt=\"${row['login']}\" /></div>\n";
+		//$text .= "<div class=\"post_icon\"><img src=\"{$img['url']}\" {$img['attr']} alt=\"{$row['login']}\" /></div>\n";
 		$text .= "<div class=\"post_header\">\n";
-		$text .= "<a href=\"posta.php?section=$POSTA_ODESLANA&amp;detail=${row['id']}\">";
-		$text .= "  <span class=\"post_sender\">${row['login']}</span>\n";
-		//$text .= "  <span class=\"post_aliance\">${al_nazev}</span>\n";
+		$text .= "<a href=\"posta.php?section=$POSTA_ODESLANA&amp;detail={$row['id']}\">";
+		$text .= "  <span class=\"post_sender\">{$row['login']}</span>\n";
+		//$text .= "  <span class=\"post_aliance\">{$al_nazev}</span>\n";
 		$text .= "  <span class=\"post_time\">".timestamp_iso_cz($row['cas'])."</span>\n";
-		$text .= "  <span class=\"post_predmet\">${row['predmet']}</span>\n";
+		$text .= "  <span class=\"post_predmet\">{$row['predmet']}</span>\n";
 		$text .= "</a>";
 		$text .= "</div>\n";
-		//$text .= "<div class=\"post_body\">${row['obsah']}\n</div>\n";
+		//$text .= "<div class=\"post_body\">{$row['obsah']}\n</div>\n";
 		
 		$text .= "</div>\n";
 

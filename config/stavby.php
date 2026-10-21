@@ -348,13 +348,13 @@ function RadekStavba($id_zeme, $id_stavba, $left, $top){
 	
 	$posun = 78;
 	
-	$text = "<div style=\"position: absolute; left:${left}px; top: ${top}px;\" onmouseover=\"stm(Text[$id_stavba],Style[1])\" onmouseout=\"htm()\">";
+	$text = "<div style=\"position: absolute; left:{$left}px; top: {$top}px;\" onmouseover=\"stm(Text[$id_stavba],Style[1])\" onmouseout=\"htm()\">";
 	
 	//STAVBA JE UZ POSTAVENA
 	if ($stavba = $db->GetFetchAssoc($res2) ){
 		$text .= '<img src="./skins/default/frame_akcni_menu/vystavba/'.$id_stavba.'_p.png" width="74" height="28" alt="" />';
 		$text .= "</div>
-			<div style=\"position: absolute; left:".($left+$posun)."px; top:${top}px;\" >
+			<div style=\"position: absolute; left:".($left+$posun)."px; top:{$top}px;\" >
 		
 				<a class=\"vystavba_akce\" href=\"frame_akcni_menu.php?section=vystavba&amp;action=zbourej
 				&amp;id_zeme=".$id_zeme."&amp;
@@ -368,13 +368,13 @@ function RadekStavba($id_zeme, $id_stavba, $left, $top){
 		//specialni pripady staveb, kdy je staveni vypnuto
 		if($vypnuta){
 			$text .= '<img src="./skins/default/frame_akcni_menu/vystavba/'.$id_stavba.'_d.png" width="74" height="28" alt="" />';
-			$text .= "</div><div style=\"position: absolute; left:".($left+$posun)."px; top:${top}px;\" >";
+			$text .= "</div><div style=\"position: absolute; left:".($left+$posun)."px; top:{$top}px;\" >";
 			$text .= '<img src="./skins/default/frame_akcni_menu/vystavba/neaktivni.png" width="51" height="28" alt="" />';
 		}
 		//stavba opravdu neni postavena a muzu ji postavit
 		else{
 			$text .= '<img src="./skins/default/frame_akcni_menu/vystavba/'.$id_stavba.'.png" width="74" height="28" alt="" />';
-			$text .= "</div><div style=\"position: absolute; left:".($left+$posun)."px; top:${top}px;\" >";
+			$text .= "</div><div style=\"position: absolute; left:".($left+$posun)."px; top:{$top}px;\" >";
 			
 			$text .= "<a class=\"vystavba_akce\" href=\"frame_akcni_menu.php?section=vystavba&amp;action=pos
 				tav&amp;id_zeme=".$id_zeme."&amp;
